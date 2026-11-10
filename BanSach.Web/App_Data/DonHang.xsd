@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="MaDonHangType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="DH[0-9]{3,}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="MaKhachHangType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="KH[0-9]{3,}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="MaSachType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="S[0-9]{3,}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Trạng thái đơn: lưu mã không dấu, chỉ nhận 5 giá trị -->
+  <xs:simpleType name="TrangThaiType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ChoXacNhan" />
+      <xs:enumeration value="DaXacNhan" />
+      <xs:enumeration value="DangGiao" />
+      <xs:enumeration value="HoanThanh" />
+      <xs:enumeration value="DaHuy" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ChuoiBatBuoc100">
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1" />
+      <xs:maxLength value="100" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ChuoiBatBuoc200">
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1" />
+      <xs:maxLength value="200" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="SoDienThoaiType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="0[0-9]{9}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="GhiChuType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="500" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Số lượng mỗi dòng >= 1 -->
+  <xs:simpleType name="SoLuongType">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1" />
+      <xs:maxInclusive value="1000" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Đơn giá lúc đặt > 0 -->
+  <xs:simpleType name="DonGiaType">
+    <xs:restriction base="xs:decimal">
+      <xs:minExclusive value="0" />
+      <xs:maxInclusive value="100000000" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Chi tiết đơn: MaSach là khóa ngoại nên để attribute, số lượng/đơn giá là dữ liệu nên để element -->
+  <xs:complexType name="ChiTietType">
+    <xs:sequence>
+      <xs:element name="SoLuong" type="SoLuongType" />
+      <xs:element name="DonGia" type="DonGiaType" />
+    </xs:sequence>
+    <xs:attribute name="MaSach" type="MaSachType" use="required" />
+  </xs:complexType>
+
+  <xs:element name="DanhSachDonHang">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="DonHang" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NgayDat" type="xs:dateTime" />
+              <xs:element name="TrangThai" type="TrangThaiType" />
+              <xs:element name="NguoiNhan" type="ChuoiBatBuoc100" />
+              <xs:element name="SoDienThoai" type="SoDienThoaiType" />
+              <xs:element name="DiaChiGiao" type="ChuoiBatBuoc200" />
+              <xs:element name="GhiChu" type="GhiChuType" minOccurs="0" />
+              <!-- Chi tiết lồng bên trong đơn, mỗi đơn ít nhất 1 dòng -->
+              <xs:element name="ChiTiet" type="ChiTietType" minOccurs="1" maxOccurs="unbounded" />
+            </xs:sequence>
+            <xs:attribute name="MaDonHang" type="MaDonHangType" use="required" />
+            <xs:attribute name="MaKhachHang" type="MaKhachHangType" use="required" />
+          </xs:complexType>
+
+          <!-- Trong 1 đơn, mỗi sách chỉ xuất hiện 1 dòng (phạm vi unique là từng DonHang) -->
+          <xs:unique name="DuyNhatSachTrongDon">
+            <xs:selector xpath="ChiTiet" />
+            <xs:field xpath="@MaSach" />
+          </xs:unique>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+
+    <xs:key name="KhoaMaDonHang">
+      <xs:selector xpath="DonHang" />
+      <xs:field xpath="@MaDonHang" />
+    </xs:key>
+  </xs:element>
+
+</xs:schema>

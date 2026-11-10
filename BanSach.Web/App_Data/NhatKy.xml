@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DanhSachNhatKy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="NhatKy.xsd">
+  <NhatKy MaNhatKy="NK001" MaTaiKhoan="TK001" MaDoiTuong="S004">
+    <ThoiGian>2026-11-10T22:39:30</ThoiGian>
+    <TenDangNhap>admin</TenDangNhap>
+    <HanhDong>Sua</HanhDong>
+    <DoiTuong>Sach</DoiTuong>
+    <NoiDung>Sửa sách S004: SoLuongTon: 0 → 5</NoiDung>
+  </NhatKy>
+  <NhatKy MaNhatKy="NK002" MaTaiKhoan="TK001" MaDoiTuong="DH009">
+    <ThoiGian>2026-11-10T23:29:42</ThoiGian>
+    <TenDangNhap>admin</TenDangNhap>
+    <HanhDong>DoiTrangThai</HanhDong>
+    <DoiTuong>DonHang</DoiTuong>
+    <NoiDung>Đơn DH009: Đã xác nhận → Đang giao</NoiDung>
+  </NhatKy>
+  <NhatKy MaNhatKy="NK003" MaTaiKhoan="TK002" MaDoiTuong="DH011">
+    <ThoiGian>2026-11-10T23:57:20</ThoiGian>
+    <TenDangNhap>vanan</TenDangNhap>
+    <HanhDong>Them</HanhDong>
+    <DoiTuong>DonHang</DoiTuong>
+    <NoiDung>Khách đặt đơn DH011: 1 cuốn, 60.000 ₫</NoiDung>
+  </NhatKy>
+  <NhatKy MaNhatKy="NK004" MaTaiKhoan="TK001" MaDoiTuong="DH011">
+    <ThoiGian>2026-11-10T23:58:05</ThoiGian>
+    <TenDangNhap>admin</TenDangNhap>
+    <HanhDong>DoiTrangThai</HanhDong>
+    <DoiTuong>DonHang</DoiTuong>
+    <NoiDung>Đơn DH011: Chờ xác nhận → Đã xác nhận. Trừ kho: S013 35 → 34</NoiDung>
+  </NhatKy>
+</DanhSachNhatKy>

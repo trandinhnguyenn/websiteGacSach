@@ -1,0 +1,73 @@
+@{
+    ViewData["Title"] = "Chi tiết sách";
+}
+
+<!-- Khung trang; JavaScript lấy dữ liệu từ GET /api/sach/{ma} rồi điền vào -->
+<div id="trangChiTiet" data-ma="@ViewData["MaSach"]">
+    <nav class="duong-dan" aria-label="Đường dẫn">
+        <a asp-controller="Sach" asp-action="Index">Sách</a>
+        <span aria-hidden="true">/</span>
+        <a id="duongTheLoai" href="/Sach">Thể loại</a>
+    </nav>
+
+    <article class="chi-tiet" id="chiTietSach" aria-busy="true">
+        <div class="chi-tiet__san">
+            <div class="sach-3d" id="sach3d">
+                <img id="anhBiaChiTiet" alt="" src="/images/sach/no-image.png">
+                <span class="sach-3d__gay" aria-hidden="true"></span>
+                <span class="sach-3d__trang" aria-hidden="true"></span>
+            </div>
+        </div>
+
+        <div class="chi-tiet__thong-tin">
+            <h1 class="chi-tiet__ten" id="tenSach">&nbsp;</h1>
+            <p class="chi-tiet__tac-gia" id="tacGiaSach">&nbsp;</p>
+            <p class="chi-tiet__gia" id="giaSach">&nbsp;</p>
+            <p class="chi-tiet__ton" id="tonSach">&nbsp;</p>
+
+            @if (User.IsInRole(VaiTro.Admin))
+            {
+                <!-- Admin không mua hàng: thay khung mua bằng đường tắt sang form sửa sách này -->
+                <div class="chi-tiet__quan-tri">
+                    <p>Bạn đang dùng tài khoản quản trị nên không đặt mua được. Muốn thử mua, hãy đăng nhập bằng tài khoản khách.</p>
+                    <a class="btn btn-primary" asp-controller="Admin" asp-action="Sach" asp-route-sua="@ViewData["MaSach"]">Sửa sách này</a>
+                </div>
+            }
+            else
+            {
+                <form class="chi-tiet__mua" id="formMua">
+                    <div class="o-so-luong o-so-luong--lon" role="group" aria-label="Số lượng">
+                        <button type="button" data-buoc="-1" aria-label="Bớt một cuốn">−</button>
+                        <input type="number" id="soLuongMua" value="1" min="1" max="99" aria-label="Số lượng">
+                        <button type="button" data-buoc="1" aria-label="Thêm một cuốn">+</button>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg flex-grow-1" id="nutThemGio">Thêm vào giỏ</button>
+                </form>
+            }
+
+            <section class="chi-tiet__gioi-thieu">
+                <h2>Giới thiệu</h2>
+                <div id="gioiThieuSach"></div>
+            </section>
+
+            <dl class="thong-so" id="thongSoSach"></dl>
+        </div>
+    </article>
+
+    <div class="trang-trong d-none" id="khongTimThay">
+        <h1 class="dau-danh-muc__tieu-de">Không tìm thấy sách này.</h1>
+        <p>Sách có thể đã ngừng bán hoặc đường dẫn bị sai.</p>
+        <a class="btn btn-primary" asp-controller="Sach" asp-action="Index">Xem các sách khác</a>
+    </div>
+
+    <section class="phan phan--lien-quan d-none" id="khungLienQuan" aria-labelledby="tieuDeLienQuan">
+        <div class="phan__dau">
+            <h2 class="phan__tieu-de" id="tieuDeLienQuan">Cùng thể loại</h2>
+        </div>
+        <div class="ke-sach" id="keLienQuan"></div>
+    </section>
+</div>
+
+@section Scripts {
+    <script src="~/js/chi-tiet-sach.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,14 @@
+@{
+    ViewData["Title"] = "Đơn hàng của tôi";
+}
+
+<div class="dau-danh-muc">
+    <h1 class="dau-danh-muc__tieu-de">Đơn hàng</h1>
+    <p class="dau-danh-muc__dem" id="demDon"></p>
+</div>
+
+<div class="ds-don" id="dsDon" aria-live="polite"></div>
+
+@section Scripts {
+    <script src="~/js/don-hang.js" asp-append-version="true"></script>
+}

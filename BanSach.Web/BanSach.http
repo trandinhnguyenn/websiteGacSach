@@ -1,0 +1,42 @@
+# Test API trực tiếp trong Visual Studio: chạy web trước (F5), rồi bấm "Send request" phía trên từng request.
+# Các request thêm/sửa/xóa cần đăng nhập + antiforgery token nên test trên giao diện Admin.
+# Ở đây test phần đọc dữ liệu, JSON/XML và các mã lỗi 401 / 404.
+
+@host = https://localhost:7126
+
+### 1. Danh sách thể loại (JSON, mặc định)
+GET {{host}}/api/theloai
+
+### 2. Cùng API đó nhưng trả XML (content negotiation qua header Accept)
+GET {{host}}/api/theloai
+Accept: application/xml
+
+### 3. Lọc sách: tìm không dấu, sắp giá giảm, trang 1, 5 cuốn/trang
+GET {{host}}/api/sach?tuKhoa=nguyen%20nhat%20anh&sapXep=gia-giam&trang=1&kichThuoc=5
+
+### 4. Lọc sách theo thể loại + khoảng giá
+GET {{host}}/api/sach?maTheLoai=TL005&giaTu=100000&giaDen=250000
+
+### 5. Một cuốn sách dạng XML
+GET {{host}}/api/sach/S001
+Accept: application/xml
+
+### 6. Mã không tồn tại -> 404 + thông báo tiếng Việt
+GET {{host}}/api/sach/S999
+
+### 7. Danh sách khách hàng khi chưa đăng nhập -> 401 (dữ liệu cá nhân, chỉ Admin)
+GET {{host}}/api/khachhang
+
+### 8. Thêm thể loại khi chưa đăng nhập -> 401 (bị chặn trước khi vào BLL)
+POST {{host}}/api/theloai
+Content-Type: application/json
+
+{
+  "tenTheLoai": "Thử thêm khi chưa đăng nhập"
+}
+
+### 9. Nhật ký khi chưa đăng nhập -> 401
+GET {{host}}/api/nhatky
+
+### 10. Tham số sai kiểu -> 400 + thông báo tiếng Việt
+GET {{host}}/api/sach?giaTu=abc

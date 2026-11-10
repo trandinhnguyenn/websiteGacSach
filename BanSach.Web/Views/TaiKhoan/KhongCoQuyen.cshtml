@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Không có quyền";
+    // Hai chiều: khách mở trang quản trị, hoặc admin mở trang chỉ dành cho khách (giỏ hàng, đặt hàng, đơn của tôi)
+    var laAdmin = User.IsInRole(VaiTro.Admin);
+}
+
+<div class="trang-thong-bao">
+    @if (laAdmin)
+    {
+        <h1>Trang này dành cho khách mua sách.</h1>
+        <p>Tài khoản quản trị không có giỏ hàng và không đặt đơn. Muốn thử mua sách, hãy đăng xuất rồi đăng nhập bằng tài khoản khách.</p>
+        <a class="btn btn-primary" asp-controller="Admin" asp-action="Index">Về trang quản trị</a>
+    }
+    else
+    {
+        <h1>Trang này dành cho quản trị viên.</h1>
+        <p>Tài khoản của bạn không mở được trang này. Nếu bạn là quản trị viên, hãy đăng xuất rồi đăng nhập bằng tài khoản quản trị.</p>
+        <a class="btn btn-primary" asp-controller="Home" asp-action="Index">Về trang chủ</a>
+    }
+</div>

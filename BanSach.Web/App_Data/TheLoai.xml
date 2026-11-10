@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DanhSachTheLoai xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="TheLoai.xsd">
+  <TheLoai MaTheLoai="TL001">
+    <TenTheLoai>Văn học Việt Nam</TenTheLoai>
+    <MoTa>Tiểu thuyết, truyện ngắn của tác giả Việt Nam</MoTa>
+  </TheLoai>
+  <TheLoai MaTheLoai="TL002">
+    <TenTheLoai>Văn học nước ngoài</TenTheLoai>
+    <MoTa>Tác phẩm văn học dịch từ nhiều nước</MoTa>
+  </TheLoai>
+  <TheLoai MaTheLoai="TL003">
+    <TenTheLoai>Kinh tế - Kỹ năng</TenTheLoai>
+    <MoTa>Sách kinh doanh, tài chính cá nhân và phát triển bản thân</MoTa>
+  </TheLoai>
+  <TheLoai MaTheLoai="TL004">
+    <TenTheLoai>Thiếu nhi</TenTheLoai>
+    <MoTa>Truyện và sách dành cho thiếu nhi</MoTa>
+  </TheLoai>
+  <TheLoai MaTheLoai="TL005">
+    <TenTheLoai>Công nghệ thông tin</TenTheLoai>
+    <MoTa>Sách lập trình và khoa học máy tính</MoTa>
+  </TheLoai>
+</DanhSachTheLoai>

@@ -1,0 +1,88 @@
+@{
+    ViewData["Title"] = "Sách";
+}
+
+<div class="dau-danh-muc">
+    <h1 class="dau-danh-muc__tieu-de">Sách</h1>
+    <p class="dau-danh-muc__dem" id="demSach" aria-live="polite"></p>
+</div>
+
+<!-- Lọc theo thể loại: JavaScript dựng từ GET /api/theloai -->
+<nav class="loc-the-loai" id="locTheLoai" aria-label="Lọc theo thể loại"></nav>
+
+<form class="thanh-loc" id="formLoc" role="search">
+    <input type="search" class="form-control" id="locTuKhoa" placeholder="Tìm tên sách hoặc tác giả, gõ không dấu cũng được" aria-label="Tìm sách">
+    <select class="form-select" id="locGia" aria-label="Khoảng giá">
+        <option value="">Mọi mức giá</option>
+        <option value="0-100000">Dưới 100.000 ₫</option>
+        <option value="100000-200000">100.000 – 200.000 ₫</option>
+        <option value="200000-">Trên 200.000 ₫</option>
+    </select>
+    <select class="form-select" id="locSapXep" aria-label="Sắp xếp">
+        <option value="moi">Mới xuất bản</option>
+        <option value="ten">Tên A → Z</option>
+        <option value="gia-tang">Giá thấp đến cao</option>
+        <option value="gia-giam">Giá cao đến thấp</option>
+    </select>
+    <button type="button" class="nut-chu-toi" id="nutTimNangCao" aria-expanded="false" aria-controls="khungTimNangCao">Tìm nâng cao (XPath)</button>
+</form>
+
+<!-- Tìm nâng cao: gửi điều kiện lên GET /api/sach/timkiem-xpath, server ghép thành một biểu thức XPath chạy trên Sach.xml -->
+<section class="tim-nang-cao" id="khungTimNangCao" hidden>
+    <form id="formTimNangCao" class="row g-3">
+        <div class="col-md-4">
+            <label class="form-label" for="tnTenSach">Tên sách chứa</label>
+            <input class="form-control" id="tnTenSach" maxlength="200">
+        </div>
+        <div class="col-md-4">
+            <label class="form-label" for="tnTacGia">Tác giả chứa</label>
+            <input class="form-control" id="tnTacGia" maxlength="100">
+        </div>
+        <div class="col-md-4">
+            <label class="form-label" for="tnNhaXuatBan">Nhà xuất bản chứa</label>
+            <input class="form-control" id="tnNhaXuatBan" maxlength="100">
+        </div>
+        <div class="col-md-4">
+            <label class="form-label" for="tnTheLoai">Thể loại</label>
+            <select class="form-select" id="tnTheLoai"><option value="">Tất cả</option></select>
+        </div>
+        <div class="col-6 col-md-2">
+            <label class="form-label" for="tnGiaTu">Giá từ</label>
+            <input class="form-control" id="tnGiaTu" type="number" min="0" step="1">
+        </div>
+        <div class="col-6 col-md-2">
+            <label class="form-label" for="tnGiaDen">Giá đến</label>
+            <input class="form-control" id="tnGiaDen" type="number" min="0" step="1">
+        </div>
+        <div class="col-6 col-md-2">
+            <label class="form-label" for="tnNamTu">Năm từ</label>
+            <input class="form-control" id="tnNamTu" type="number" min="1900" max="2100">
+        </div>
+        <div class="col-6 col-md-2">
+            <label class="form-label" for="tnNamDen">Năm đến</label>
+            <input class="form-control" id="tnNamDen" type="number" min="1900" max="2100">
+        </div>
+        <div class="col-12 d-flex flex-wrap align-items-center gap-3">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="tnConHang">
+                <label class="form-check-label" for="tnConHang">Chỉ sách còn hàng</label>
+            </div>
+            <button type="submit" class="btn btn-primary ms-auto">Tìm bằng XPath</button>
+            <button type="button" class="btn btn-outline-secondary" id="nutBoTimNangCao">Bỏ tìm nâng cao</button>
+        </div>
+    </form>
+    <div class="alert alert-danger d-none mt-3" id="loiTimNangCao"></div>
+    <div class="bieu-thuc-xpath" id="bieuThucXPath" hidden>
+        <p class="bieu-thuc-xpath__nhan">Biểu thức XPath đã chạy trên Sach.xml <span id="soKetQuaXPath"></span></p>
+        <pre><code id="maXPath"></code></pre>
+        <p class="bieu-thuc-xpath__ghi-chu">Bảng chữ trong translate() được rút gọn khi hiển thị. translate() đổi chữ có dấu thành không dấu nên gõ "nha nam" vẫn tìm ra "Nhã Nam".</p>
+    </div>
+</section>
+
+<div class="luoi-sach" id="luoiSach" aria-live="polite"></div>
+
+<nav class="d-flex justify-content-center mt-5" id="phanTrangSach" aria-label="Phân trang"></nav>
+
+@section Scripts {
+    <script src="~/js/danh-sach.js" asp-append-version="true"></script>
+}

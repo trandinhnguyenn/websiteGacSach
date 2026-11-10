@@ -1,0 +1,180 @@
+@using Microsoft.AspNetCore.Antiforgery
+@inject IAntiforgery Antiforgery
+@{
+    // Token chống CSRF: JavaScript đọc từ thẻ meta và gửi kèm header RequestVerificationToken khi gọi API
+    var csrfToken = Antiforgery.GetAndStoreTokens(Context).RequestToken;
+    var daDangNhap = User.Identity?.IsAuthenticated == true;
+    // Trang chủ, đăng nhập dùng toàn màn hình (tự chia khung), các trang khác bọc trong container
+    var toanMan = ViewData["ToanMan"] is true;
+    var laAdmin = User.IsInRole(VaiTro.Admin);
+    var laKhach = User.IsInRole(VaiTro.KhachHang);
+    // Tên và khẩu hiệu của web: đổi trong ThongTinWeb.cs là đổi khắp nơi (JavaScript đọc tên từ thẻ meta application-name)
+    const string TenWeb = ThongTinWeb.TenWeb;
+    const string KhauHieu = ThongTinWeb.KhauHieu;
+}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="csrf-token" content="@csrfToken" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="application-name" content="@TenWeb" />
+    <meta name="description" content="@TenWeb - @KhauHieu Hiệu sách trực tuyến, đặt sách trên web, thanh toán khi nhận hàng." />
+    <title>@ViewData["Title"] - @TenWeb</title>
+    <link rel="preload" href="~/lib/fonts/bricolage-grotesque-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="~/lib/fonts/bricolage-grotesque-vietnamese-standard-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <script src="~/js/chuyen-trang.js" asp-append-version="true"></script>
+</head>
+<!-- data-vai-tro: site.js dùng để không vẽ nút "Thêm vào giỏ" cho admin (chỉ để hiển thị, API vẫn tự chặn) -->
+<body data-vai-tro="@(laAdmin ? VaiTro.Admin : laKhach ? VaiTro.KhachHang : null)">
+    <header class="dau-trang">
+        <div class="container dau-trang__khung">
+            <a class="ten-hieu" asp-controller="Home" asp-action="Index">@TenWeb</a>
+
+            <nav class="menu-chinh" aria-label="Menu chính">
+                <a asp-controller="Sach" asp-action="Index">Sách</a>
+                <a href="/#the-loai">Thể loại</a>
+                @if (laKhach)
+                {
+                    <a asp-controller="DonHang" asp-action="Index">Đơn hàng</a>
+                }
+                @if (laAdmin)
+                {
+                    <a asp-controller="Admin" asp-action="Index">Quản trị</a>
+                }
+            </nav>
+
+            <div class="tai-khoan">
+                @if (daDangNhap)
+                {
+                    <a asp-controller="TaiKhoan" asp-action="HoSo" title="Tài khoản của tôi"><span class="tai-khoan__chao">Xin chào, </span><strong>@User.Identity!.Name</strong></a>
+                    <button type="button" class="nut-chu" id="nutDangXuat">Đăng xuất</button>
+                }
+                else
+                {
+                    <a asp-controller="TaiKhoan" asp-action="DangNhap">Đăng nhập</a>
+                }
+                @if (!laAdmin)
+                {
+                    <button type="button" class="nut-gio" data-bs-toggle="offcanvas" data-bs-target="#nganGio" aria-controls="nganGio">
+                        Giỏ hàng <span class="nut-gio__so" id="soLuongGio">0</span>
+                    </button>
+                }
+            </div>
+        </div>
+    </header>
+
+    @if (daDangNhap && User.HasClaim(BanSach.Web.Services.PhienDangNhap.ClaimMatKhauYeu, "1"))
+    {
+        <!-- Mật khẩu đặt trước khi có quy tắc mới: vẫn cho dùng, chỉ nhắc. Đổi xong thì cookie mới không còn đánh dấu này -->
+        <div class="nhac-mat-khau" id="nhacMatKhau" role="status">
+            <div class="container nhac-mat-khau__trong">
+                <p>Mật khẩu của bạn khá yếu, dễ bị đoán. Nên đổi sang mật khẩu từ 8 ký tự, có cả chữ và số.</p>
+                <div class="nhac-mat-khau__nut">
+                    <a asp-controller="TaiKhoan" asp-action="HoSo" asp-fragment="doi-mat-khau">Đổi mật khẩu</a>
+                    <button type="button" data-an-nhac-mat-khau>Để sau</button>
+                </div>
+            </div>
+        </div>
+    }
+
+    <main>
+        @if (toanMan)
+        {
+            @RenderBody()
+        }
+        else
+        {
+            <div class="container khung-trang">
+                @RenderBody()
+            </div>
+        }
+    </main>
+
+    <footer class="chan-trang">
+        <div class="container">
+            <div class="chan-trang__khung">
+                <div class="chan-trang__gioi-thieu">
+                    <a class="ten-hieu" asp-controller="Home" asp-action="Index">@TenWeb</a>
+                    <p class="chan-trang__khau-hieu">@KhauHieu</p>
+                    <p>Hiệu sách trực tuyến cho người thích đọc. Chọn sách trên web, giao tận nơi, thanh toán khi nhận hàng.</p>
+                </div>
+
+                <nav aria-labelledby="ctKhamPha">
+                    <p class="chan-trang__tieu-de" id="ctKhamPha">Khám phá</p>
+                    <ul>
+                        <li><a asp-controller="Sach" asp-action="Index">Tất cả sách</a></li>
+                        <li><a href="/#moi-ve">Sách mới về</a></li>
+                        <li><a href="/#the-loai">Thể loại</a></li>
+                    </ul>
+                </nav>
+
+                <nav aria-labelledby="ctTaiKhoan">
+                    <p class="chan-trang__tieu-de" id="ctTaiKhoan">Tài khoản</p>
+                    <ul>
+                        @if (!daDangNhap)
+                        {
+                            <li><a asp-controller="TaiKhoan" asp-action="DangNhap">Đăng nhập</a></li>
+                            <li><a asp-controller="TaiKhoan" asp-action="DangKy">Đăng ký</a></li>
+                        }
+                        else
+                        {
+                            <li><a asp-controller="TaiKhoan" asp-action="HoSo">Hồ sơ của tôi</a></li>
+                        }
+                        @if (laKhach)
+                        {
+                            <li><a asp-controller="DonHang" asp-action="Index">Đơn hàng của tôi</a></li>
+                        }
+                        @if (laAdmin)
+                        {
+                            <li><a asp-controller="Admin" asp-action="Index">Quản trị</a></li>
+                        }
+                        else
+                        {
+                            <li><a asp-controller="GioHang" asp-action="Index">Giỏ hàng</a></li>
+                        }
+                    </ul>
+                </nav>
+
+                <div class="chan-trang__cot-lien-he">
+                    <p class="chan-trang__tieu-de">Liên hệ</p>
+                    <ul class="chan-trang__lien-he">
+                        <li><a href="mailto:@ThongTinWeb.EmailTruong">@ThongTinWeb.EmailTruong</a></li>
+                        <li><a href="mailto:@ThongTinWeb.EmailRieng">@ThongTinWeb.EmailRieng</a></li>
+                        <li><a href="tel:@ThongTinWeb.SoDienThoai">@ThongTinWeb.SoDienThoaiHienThi</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="chan-trang__cuoi">
+                <p>© 2026 @TenWeb. Đồ án môn Công nghệ XML, lớp 126CNX03.</p>
+                <p>Sinh viên thực hiện: <strong>Trần Đình Nguyên</strong> · <span class="text-nowrap">MSSV 2415053122225</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Ngăn giỏ hàng trượt từ bên phải (Bootstrap offcanvas), nội dung do site.js vẽ từ GET /api/giohang -->
+    @if (!laAdmin)
+    {
+        <aside class="offcanvas offcanvas-end ngan-gio" tabindex="-1" id="nganGio" aria-labelledby="tieuDeNganGio">
+            <div class="offcanvas-header">
+                <h2 class="offcanvas-title ngan-gio__tieu-de" id="tieuDeNganGio">Giỏ hàng</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Đóng giỏ hàng"></button>
+            </div>
+            <div class="offcanvas-body" id="noiDungNganGio"></div>
+            <div class="ngan-gio__chan" id="chanNganGio"></div>
+        </aside>
+    }
+
+    <!-- Vùng hiện thông báo nhỏ góc dưới phải -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" id="vungThongBao"></div>
+
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

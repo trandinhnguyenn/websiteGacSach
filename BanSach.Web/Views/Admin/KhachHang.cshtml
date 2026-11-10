@@ -1,0 +1,77 @@
+@{
+    ViewData["Title"] = "Quản lý khách hàng";
+}
+
+<div class="tieu-de-trang">
+    <h1>Khách hàng</h1>
+    <button type="button" class="btn btn-primary" id="nutThem">+ Thêm khách hàng</button>
+</div>
+
+<div class="row g-2 mb-3">
+    <div class="col-md-5">
+        <input type="search" class="form-control" id="locTuKhoa" placeholder="Tìm họ tên, số điện thoại, email">
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover bang-quan-tri">
+        <thead>
+            <tr>
+                <th>Mã</th>
+                <th>Họ tên</th>
+                <th>Điện thoại</th>
+                <th>Email</th>
+                <th>Địa chỉ</th>
+                <th>Tài khoản</th>
+                <th class="text-end text-nowrap">Số đơn</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="bangKhachHang">
+            <tr><td colspan="8" class="text-muted">Đang tải...</td></tr>
+        </tbody>
+    </table>
+</div>
+<div class="small text-muted mt-2">
+    Admin thêm khách hàng chỉ tạo hồ sơ. Khách tự đăng ký bằng đúng số điện thoại này thì tài khoản sẽ gắn vào hồ sơ có sẵn.
+</div>
+
+<div class="modal fade" id="modalKhachHang" tabindex="-1">
+    <div class="modal-dialog">
+        <form class="modal-content" id="formKhachHang" novalidate>
+            <div class="modal-header">
+                <h2 class="modal-title h5" id="tieuDeModal">Thêm khách hàng</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger d-none" data-khung-loi></div>
+                <div class="mb-3">
+                    <label for="hoTen" class="form-label">Họ tên <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="hoTen" maxlength="100" required>
+                </div>
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <label for="soDienThoai" class="form-label">Số điện thoại <span class="text-danger">*</span></label>
+                        <input type="tel" class="form-control" id="soDienThoai" maxlength="14" placeholder="0905123456" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" maxlength="100">
+                    </div>
+                </div>
+                <div class="mb-0">
+                    <label for="diaChi" class="form-label">Địa chỉ <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="diaChi" maxlength="200" required>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Hủy</button>
+                <button type="submit" class="btn btn-primary" id="nutLuu">Lưu</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/admin/khach-hang.js" asp-append-version="true"></script>
+}

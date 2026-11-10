@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Mã nhật ký: NK + ít nhất 3 chữ số (NK001...) -->
+  <xs:simpleType name="MaNhatKyType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="NK[0-9]{3,}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="MaTaiKhoanType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="TK[0-9]{3,}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="TenDangNhapType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Za-z0-9_.]{3,30}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Hành động chỉ nhận các giá trị đã định nghĩa -->
+  <xs:simpleType name="HanhDongType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Them" />
+      <xs:enumeration value="Sua" />
+      <xs:enumeration value="Xoa" />
+      <xs:enumeration value="DoiTrangThai" />
+      <xs:enumeration value="HuyDon" />
+      <xs:enumeration value="NhapXml" />
+      <xs:enumeration value="DangKy" />
+      <xs:enumeration value="DoiMatKhau" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Đối tượng bị tác động: tên file XML tương ứng -->
+  <xs:simpleType name="DoiTuongType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TheLoai" />
+      <xs:enumeration value="Sach" />
+      <xs:enumeration value="KhachHang" />
+      <xs:enumeration value="DonHang" />
+      <xs:enumeration value="DuLieu" />
+      <xs:enumeration value="TaiKhoan" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Mã đối tượng: chữ in hoa + số (TL001, S001, KH001, DH001...) -->
+  <xs:simpleType name="MaDoiTuongType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z]{1,2}[0-9]{3,}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="NoiDungType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+      <xs:maxLength value="500" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="DanhSachNhatKy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="NhatKy" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ThoiGian" type="xs:dateTime" />
+              <xs:element name="TenDangNhap" type="TenDangNhapType" />
+              <xs:element name="HanhDong" type="HanhDongType" />
+              <xs:element name="DoiTuong" type="DoiTuongType" />
+              <xs:element name="NoiDung" type="NoiDungType" />
+            </xs:sequence>
+            <xs:attribute name="MaNhatKy" type="MaNhatKyType" use="required" />
+            <!-- Khóa ngoại sang TaiKhoan.xml: ai thực hiện -->
+            <xs:attribute name="MaTaiKhoan" type="MaTaiKhoanType" use="required" />
+            <!-- Mã bản ghi bị tác động, không bắt buộc (vd nhập XML cả file thì không có) -->
+            <xs:attribute name="MaDoiTuong" type="MaDoiTuongType" use="optional" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+
+    <xs:key name="KhoaMaNhatKy">
+      <xs:selector xpath="NhatKy" />
+      <xs:field xpath="@MaNhatKy" />
+    </xs:key>
+  </xs:element>
+
+</xs:schema>

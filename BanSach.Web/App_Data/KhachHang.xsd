@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Mã khách hàng: KH + ít nhất 3 chữ số (KH001...) -->
+  <xs:simpleType name="MaKhachHangType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="KH[0-9]{3,}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="HoTenType">
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1" />
+      <xs:maxLength value="100" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Số điện thoại Việt Nam: 10 số, bắt đầu bằng 0 -->
+  <xs:simpleType name="SoDienThoaiType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="0[0-9]{9}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="EmailType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[^@\s]+@[^@\s]+\.[^@\s]+" />
+      <xs:maxLength value="100" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="DiaChiType">
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1" />
+      <xs:maxLength value="200" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="DanhSachKhachHang">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="KhachHang" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="HoTen" type="HoTenType" />
+              <xs:element name="SoDienThoai" type="SoDienThoaiType" />
+              <xs:element name="Email" type="EmailType" minOccurs="0" />
+              <xs:element name="DiaChi" type="DiaChiType" />
+            </xs:sequence>
+            <xs:attribute name="MaKhachHang" type="MaKhachHangType" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+
+    <xs:key name="KhoaMaKhachHang">
+      <xs:selector xpath="KhachHang" />
+      <xs:field xpath="@MaKhachHang" />
+    </xs:key>
+
+    <!-- Mỗi số điện thoại chỉ thuộc 1 khách hàng -->
+    <xs:unique name="DuyNhatSoDienThoai">
+      <xs:selector xpath="KhachHang" />
+      <xs:field xpath="SoDienThoai" />
+    </xs:unique>
+
+    <!-- Email không bắt buộc; xs:unique bỏ qua khách không có Email, chỉ chặn trùng khi có -->
+    <xs:unique name="DuyNhatEmail">
+      <xs:selector xpath="KhachHang" />
+      <xs:field xpath="Email" />
+    </xs:unique>
+  </xs:element>
+
+</xs:schema>

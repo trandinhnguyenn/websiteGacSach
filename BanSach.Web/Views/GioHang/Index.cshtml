@@ -1,0 +1,37 @@
+@{
+    ViewData["Title"] = "Giỏ hàng";
+    var daDangNhap = User.Identity?.IsAuthenticated == true;
+    var laKhach = User.IsInRole(VaiTro.KhachHang);
+}
+
+<div class="dau-danh-muc">
+    <h1 class="dau-danh-muc__tieu-de">Giỏ hàng</h1>
+</div>
+
+<div class="trang-gio">
+    <div class="trang-gio__ds" id="dsGio" aria-live="polite"></div>
+
+    <aside class="tom-tat" id="tomTatGio" hidden>
+        <div class="tom-tat__dong"><span>Số cuốn</span><span id="tongCuon">0</span></div>
+        <div class="tom-tat__dong tom-tat__dong--tong"><span>Tổng cộng</span><strong id="tongTien">0 ₫</strong></div>
+        @if (laKhach)
+        {
+            <p class="tom-tat__ghi-chu" id="ghiChuHetHang" hidden></p>
+            <a class="btn btn-primary btn-lg w-100" id="nutDatHang" asp-controller="GioHang" asp-action="ThanhToan">Đặt hàng</a>
+        }
+        else if (daDangNhap)
+        {
+            <p class="tom-tat__ghi-chu">Tài khoản quản trị không đặt hàng được. Đăng nhập bằng tài khoản khách hàng để đặt.</p>
+        }
+        else
+        {
+            <p class="tom-tat__ghi-chu">Đăng nhập để đặt hàng. Giỏ hàng vẫn được giữ nguyên sau khi bạn đăng nhập.</p>
+            <a class="btn btn-primary btn-lg w-100 mb-2" href="/TaiKhoan/DangNhap?returnUrl=%2FGioHang%2FThanhToan">Đăng nhập để đặt hàng</a>
+            <a class="btn btn-outline-secondary w-100" href="/TaiKhoan/DangKy?returnUrl=%2FGioHang%2FThanhToan">Tạo tài khoản</a>
+        }
+    </aside>
+</div>
+
+@section Scripts {
+    <script src="~/js/gio-hang.js" asp-append-version="true"></script>
+}

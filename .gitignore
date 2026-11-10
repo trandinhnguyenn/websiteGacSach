@@ -1,0 +1,22 @@
+# Kết quả build (dotnet build tự tạo lại)
+bin/
+obj/
+
+# Cài đặt riêng của Visual Studio / VS Code trên từng máy
+.vs/
+.vscode/
+*.user
+*.suo
+*.rsuser
+
+# File tạm và bản sao lưu XmlStore tự sinh khi ghi dữ liệu
+**/App_Data/*.tmp
+**/App_Data/*.bak
+*.tmp
+
+# Cấu hình công cụ Claude Code (chỉ dùng trên máy này)
+.claude/
+
+# File rác của Windows
+Thumbs.db
+Desktop.ini

@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="BanSach.DTO/BanSach.DTO.csproj" />
+  <Project Path="BanSach.DAL/BanSach.DAL.csproj" />
+  <Project Path="BanSach.BLL/BanSach.BLL.csproj" />
+  <Project Path="BanSach.Web/BanSach.Web.csproj" />
+</Solution>

@@ -1,0 +1,62 @@
+@{
+    ViewData["Title"] = "Quản trị";
+}
+
+<div class="tieu-de-trang">
+    <h1>Tổng quan</h1>
+</div>
+
+<h2 class="h5 mb-3">Đơn hàng</h2>
+<div class="row g-4 mb-5">
+    <div class="col-6 col-xl-3">
+        <a class="so-lieu" href="/Admin/DonHang?trangThai=ChoXacNhan"><span class="so-lieu__so" id="soDonCho">…</span><span class="so-lieu__nhan">Chờ xác nhận</span></a>
+    </div>
+    <div class="col-6 col-xl-3">
+        <a class="so-lieu" href="/Admin/DonHang?trangThai=DaXacNhan"><span class="so-lieu__so" id="soDonDangXuLy">…</span><span class="so-lieu__nhan">Đang xử lý (xác nhận, đang giao)</span></a>
+    </div>
+    <div class="col-6 col-xl-3">
+        <a class="so-lieu" href="/Admin/DonHang?trangThai=HoanThanh"><span class="so-lieu__so" id="soDonHoanThanh">…</span><span class="so-lieu__nhan">Hoàn thành</span></a>
+    </div>
+    <div class="col-6 col-xl-3">
+        <a class="so-lieu" href="/Admin/DonHang?trangThai=HoanThanh"><span class="so-lieu__so" id="doanhThu">…</span><span class="so-lieu__nhan">Doanh thu (đơn hoàn thành)</span></a>
+    </div>
+</div>
+
+<h2 class="h5 mb-3">Kho sách</h2>
+<div class="row g-4 mb-5">
+    <div class="col-6 col-xl-3">
+        <a class="so-lieu" asp-action="Sach"><span class="so-lieu__so" id="soSach">…</span><span class="so-lieu__nhan">Đầu sách</span></a>
+    </div>
+    <div class="col-6 col-xl-3">
+        <a class="so-lieu" asp-action="TheLoai"><span class="so-lieu__so" id="soTheLoai">…</span><span class="so-lieu__nhan">Thể loại</span></a>
+    </div>
+    <div class="col-6 col-xl-3">
+        <a class="so-lieu" asp-action="KhachHang"><span class="so-lieu__so" id="soKhachHang">…</span><span class="so-lieu__nhan">Khách hàng</span></a>
+    </div>
+    <div class="col-6 col-xl-3">
+        <a class="so-lieu" asp-action="Sach"><span class="so-lieu__so" id="soHetHang">…</span><span class="so-lieu__nhan">Sách hết hàng</span></a>
+    </div>
+</div>
+
+<div class="d-flex justify-content-between align-items-center mb-2">
+    <h2 class="h5 mb-0">Thao tác gần đây</h2>
+    <a asp-action="NhatKy" class="small">Xem tất cả</a>
+</div>
+<div class="table-responsive">
+    <table class="table bang-quan-tri">
+        <thead>
+            <tr>
+                <th>Thời gian</th>
+                <th>Người làm</th>
+                <th>Nội dung</th>
+            </tr>
+        </thead>
+        <tbody id="bangNhatKyGanDay">
+            <tr><td colspan="3" class="text-muted">Đang tải...</td></tr>
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <script src="~/js/admin/tong-quan.js" asp-append-version="true"></script>
+}

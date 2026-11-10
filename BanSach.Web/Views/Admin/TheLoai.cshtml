@@ -1,0 +1,55 @@
+@{
+    ViewData["Title"] = "Quản lý thể loại";
+}
+
+<div class="tieu-de-trang">
+    <h1>Thể loại</h1>
+    <button type="button" class="btn btn-primary" id="nutThem">+ Thêm thể loại</button>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover bang-quan-tri">
+        <thead>
+            <tr>
+                <th>Mã</th>
+                <th>Tên thể loại</th>
+                <th>Mô tả</th>
+                <th class="text-end">Số sách</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="bangTheLoai">
+            <tr><td colspan="5" class="text-muted">Đang tải...</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="modalTheLoai" tabindex="-1">
+    <div class="modal-dialog">
+        <form class="modal-content" id="formTheLoai" novalidate>
+            <div class="modal-header">
+                <h2 class="modal-title h5" id="tieuDeModal">Thêm thể loại</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger d-none" data-khung-loi></div>
+                <div class="mb-3">
+                    <label for="tenTheLoai" class="form-label">Tên thể loại <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="tenTheLoai" maxlength="100" required>
+                </div>
+                <div class="mb-0">
+                    <label for="moTaTheLoai" class="form-label">Mô tả</label>
+                    <textarea class="form-control" id="moTaTheLoai" rows="3" maxlength="500"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Hủy</button>
+                <button type="submit" class="btn btn-primary" id="nutLuu">Lưu</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/admin/the-loai.js" asp-append-version="true"></script>
+}

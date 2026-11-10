@@ -1,0 +1,444 @@
+/* =====================================================================
+   Báo cáo XSLT (tồn kho, doanh thu, hóa đơn): trang HTML do XslCompiledTransform sinh ra.
+   Thiết kế cho cả màn hình và giấy A4, cùng chữ với trang chính.
+   ===================================================================== */
+@font-face {
+    font-family: 'Bricolage Grotesque';
+    font-weight: 200 800;
+    font-stretch: 75% 100%;
+    font-display: swap;
+    src: url('../lib/fonts/bricolage-grotesque-vietnamese-standard-normal.woff2') format('woff2');
+    unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+@font-face {
+    font-family: 'Bricolage Grotesque';
+    font-weight: 200 800;
+    font-stretch: 75% 100%;
+    font-display: swap;
+    src: url('../lib/fonts/bricolage-grotesque-latin-standard-normal.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Newsreader';
+    font-weight: 200 800;
+    font-display: swap;
+    src: url('../lib/fonts/newsreader-vietnamese-standard-normal.woff2') format('woff2');
+    unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+
+@font-face {
+    font-family: 'Newsreader';
+    font-weight: 200 800;
+    font-display: swap;
+    src: url('../lib/fonts/newsreader-latin-standard-normal.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+    --muc: #1A1A1A;
+    --chu-phu: #66665F;
+    --ke: #E2E2DC;
+    --giay: #F3F3F0;
+    --do: #B3261E;
+    --vang: #8A5A00;
+    --chu-tieu-de: 'Bricolage Grotesque', system-ui, sans-serif;
+    --chu-doc: 'Newsreader', Georgia, serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: var(--giay);
+}
+
+body {
+    margin: 0;
+    padding: 2rem 1rem 4rem;
+    font-family: var(--chu-tieu-de);
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--muc);
+}
+
+/* Một tờ giấy ở giữa màn hình */
+.to-giay {
+    max-width: 960px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 2.5rem 3rem 3rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .08);
+}
+
+.thanh-cong-cu {
+    max-width: 960px;
+    margin: 0 auto 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    font-size: .875rem;
+}
+
+.thanh-cong-cu a {
+    color: var(--muc);
+}
+
+.nut-in {
+    font: inherit;
+    font-weight: 600;
+    background: #000;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+    padding: .55rem 1.1rem;
+    cursor: pointer;
+}
+
+.nut-in:hover {
+    background: #333;
+}
+
+/* ---------- Đầu báo cáo ---------- */
+.dau-bao-cao {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 3px solid #000;
+    margin-bottom: 2rem;
+}
+
+.ten-hieu {
+    font-weight: 800;
+    font-stretch: 75%;
+    font-size: 1.75rem;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin: 0 0 .35rem;
+}
+
+.khau-hieu {
+    font-family: var(--chu-doc);
+    color: var(--chu-phu);
+    margin: 0;
+}
+
+.dau-bao-cao__phai {
+    text-align: right;
+}
+
+h1 {
+    font-weight: 800;
+    font-stretch: 75%;
+    font-size: 2.5rem;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin: 0 0 .35rem;
+    text-transform: uppercase;
+}
+
+.phu {
+    color: var(--chu-phu);
+    font-size: .875rem;
+    margin: 0;
+}
+
+h2 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin: 2.25rem 0 .75rem;
+}
+
+h2 .phu {
+    font-weight: 400;
+    margin-left: .35rem;
+}
+
+/* ---------- Số liệu tổng ---------- */
+.so-lieu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.so-lieu div {
+    border-top: 2px solid var(--muc);
+    padding-top: .75rem;
+}
+
+.so-lieu strong {
+    display: block;
+    font-weight: 800;
+    font-stretch: 75%;
+    font-size: 1.875rem;
+    line-height: 1.05;
+    font-variant-numeric: tabular-nums;
+}
+
+.so-lieu span {
+    color: var(--chu-phu);
+    font-size: .8125rem;
+}
+
+/* ---------- Bảng ---------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .875rem;
+}
+
+th {
+    text-align: left;
+    font-weight: 500;
+    font-size: .75rem;
+    color: var(--chu-phu);
+    border-bottom: 2px solid var(--muc);
+    padding: .5rem .5rem .45rem;
+    white-space: nowrap;
+}
+
+td {
+    padding: .55rem .5rem;
+    border-bottom: 1px solid var(--ke);
+    vertical-align: top;
+}
+
+th:first-child,
+td:first-child {
+    padding-left: 0;
+}
+
+th:last-child,
+td:last-child {
+    padding-right: 0;
+}
+
+.so {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.ma {
+    font-size: .75rem;
+    font-weight: 600;
+    color: var(--chu-phu);
+    white-space: nowrap;
+}
+
+.ten-sach {
+    font-family: var(--chu-doc);
+    font-size: .9375rem;
+}
+
+/* Dòng "SL × đơn giá" dưới tên sách: chỉ hiện trên màn hình hẹp (xem @media bên dưới) */
+.chi-hep {
+    display: none;
+    margin-top: .25rem;
+    font-size: .8125rem;
+    color: var(--chu-phu);
+    font-variant-numeric: tabular-nums;
+}
+
+tfoot td {
+    border-bottom: 0;
+    border-top: 2px solid var(--muc);
+    font-weight: 700;
+}
+
+.het {
+    color: var(--do);
+    font-weight: 700;
+}
+
+.sap-het {
+    color: var(--vang);
+    font-weight: 700;
+}
+
+.nhan {
+    display: inline-block;
+    font-size: .75rem;
+    font-weight: 600;
+    padding: .1rem .5rem;
+    border-radius: 999px;
+    background: var(--giay);
+    white-space: nowrap;
+}
+
+.ghi-chu {
+    color: var(--chu-phu);
+    font-size: .8125rem;
+    margin: .75rem 0 0;
+}
+
+.chan-bao-cao {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--ke);
+    color: var(--chu-phu);
+    font-size: .75rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* ---------- Hóa đơn ---------- */
+.hai-cot {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.hai-cot h2 {
+    margin-top: 0;
+    font-size: .75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--chu-phu);
+}
+
+.hai-cot p {
+    margin: 0 0 .2rem;
+}
+
+.tong-hoa-don {
+    margin-left: auto;
+    width: min(320px, 100%);
+    margin-top: 1rem;
+}
+
+.tong-hoa-don div {
+    display: flex;
+    justify-content: space-between;
+    padding: .35rem 0;
+}
+
+.tong-hoa-don .tong {
+    border-top: 2px solid var(--muc);
+    margin-top: .25rem;
+    padding-top: .6rem;
+    font-weight: 800;
+    font-size: 1.25rem;
+}
+
+/* Dấu "ĐÃ HỦY" đóng chéo trên hóa đơn của đơn đã hủy */
+.dau-huy {
+    position: absolute;
+    top: 9rem;
+    right: 3rem;
+    transform: rotate(-12deg);
+    border: 3px solid var(--do);
+    color: var(--do);
+    font-weight: 800;
+    font-size: 1.75rem;
+    letter-spacing: .08em;
+    padding: .25rem 1rem;
+    opacity: .8;
+}
+
+.to-giay {
+    position: relative;
+}
+
+.ky-ten {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    margin-top: 3rem;
+    font-size: .875rem;
+}
+
+.ky-ten p {
+    margin: 0;
+}
+
+.ky-ten .phu {
+    margin-bottom: 4rem;
+}
+
+@media (max-width: 640px) {
+    .to-giay {
+        padding: 1.5rem 1.25rem 2rem;
+    }
+
+    .dau-bao-cao {
+        display: block;
+    }
+
+    .hai-cot {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.25rem;
+    }
+
+    .dau-bao-cao__phai {
+        text-align: left;
+        margin-top: 1rem;
+    }
+
+    h1 {
+        font-size: 1.875rem;
+    }
+
+    .bang-cuon {
+        overflow-x: auto;
+    }
+
+    .dau-huy {
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.125rem;
+    }
+}
+
+/* Hóa đơn trên điện thoại: gộp Số lượng, Đơn giá vào dưới tên sách. Chỉ áp cho màn hình (screen), khi in giữ đủ cột */
+@media screen and (max-width: 640px) {
+    .bang-hoa-don .an-hep {
+        display: none;
+    }
+
+    .bang-hoa-don .chi-hep {
+        display: block;
+    }
+}
+
+/* In ra giấy: bỏ nền xám, bóng, thanh công cụ; không cắt đôi một dòng bảng */
+@media print {
+    @page {
+        size: A4;
+        margin: 14mm;
+    }
+
+    html,
+    body {
+        background: #fff;
+        padding: 0;
+    }
+
+    .to-giay {
+        box-shadow: none;
+        padding: 0;
+        max-width: none;
+    }
+
+    .khong-in {
+        display: none !important;
+    }
+
+    tr,
+    .so-lieu div {
+        break-inside: avoid;
+    }
+
+    h2 {
+        break-after: avoid;
+    }
+}

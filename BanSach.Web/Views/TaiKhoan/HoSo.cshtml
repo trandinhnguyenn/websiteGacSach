@@ -1,0 +1,65 @@
+@{
+    ViewData["Title"] = "Tài khoản";
+    var laKhach = User.IsInRole(VaiTro.KhachHang);
+}
+
+<div class="dau-danh-muc">
+    <h1 class="dau-danh-muc__tieu-de">Tài khoản</h1>
+    <p class="dau-danh-muc__dem">Đăng nhập với tên <strong>@User.Identity?.Name</strong></p>
+</div>
+
+<div class="ho-so">
+    @if (laKhach)
+    {
+        <form class="ho-so__khoi" id="formHoSo" novalidate>
+            <h2 class="tieu-de-nho">Thông tin giao hàng</h2>
+            <div class="alert alert-danger d-none" data-khung-loi></div>
+            <div class="mb-3">
+                <label for="hoTen" class="form-label">Họ tên</label>
+                <input class="form-control" id="hoTen" maxlength="100" required>
+            </div>
+            <div class="mb-3">
+                <label for="soDienThoai" class="form-label">Số điện thoại</label>
+                <input class="form-control" id="soDienThoai" type="tel" maxlength="14" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input class="form-control" id="email" type="email" maxlength="100">
+            </div>
+            <div class="mb-4">
+                <label for="diaChi" class="form-label">Địa chỉ</label>
+                <input class="form-control" id="diaChi" maxlength="200" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Lưu thông tin</button>
+        </form>
+    }
+
+    <form class="ho-so__khoi" id="formDoiMatKhau" novalidate data-ten-dang-nhap="@User.Identity?.Name">
+        <h2 class="tieu-de-nho" id="doi-mat-khau">Đổi mật khẩu</h2>
+        <div class="alert alert-danger d-none" data-khung-loi></div>
+        <div class="mb-3">
+            <label for="matKhauCu" class="form-label">Mật khẩu hiện tại</label>
+            <input class="form-control" id="matKhauCu" type="password" maxlength="100" autocomplete="current-password" required>
+        </div>
+        <div class="mb-3">
+            <label for="matKhauMoi" class="form-label">Mật khẩu mới</label>
+            <input class="form-control" id="matKhauMoi" type="password" maxlength="100" autocomplete="new-password" required aria-describedby="quyTacMatKhau ghiChuDoiMatKhau">
+            <ul class="quy-tac-mat-khau" id="quyTacMatKhau">
+                <li data-quy-tac="doDai">Từ 8 ký tự trở lên</li>
+                <li data-quy-tac="chuVaSo">Có cả chữ và số</li>
+                <li data-quy-tac="khongChuaTen">Không chứa tên đăng nhập</li>
+                <li data-quy-tac="khacMatKhauCu">Khác mật khẩu hiện tại</li>
+            </ul>
+            <div class="form-text" id="ghiChuDoiMatKhau">Đổi xong, các máy và trình duyệt khác đang đăng nhập tài khoản này sẽ bị đăng xuất.</div>
+        </div>
+        <div class="mb-4">
+            <label for="nhapLaiMatKhauMoi" class="form-label">Nhập lại mật khẩu mới</label>
+            <input class="form-control" id="nhapLaiMatKhauMoi" type="password" maxlength="100" autocomplete="new-password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Đổi mật khẩu</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script src="~/js/ho-so.js" asp-append-version="true"></script>
+}

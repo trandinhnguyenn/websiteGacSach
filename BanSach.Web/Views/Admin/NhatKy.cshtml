@@ -1,0 +1,59 @@
+@{
+    ViewData["Title"] = "Nhật ký thao tác";
+}
+
+<div class="tieu-de-trang">
+    <h1>Nhật ký</h1>
+</div>
+
+<div class="row g-2 mb-3">
+    <div class="col-6 col-md-3">
+        <select class="form-select" id="locDoiTuong">
+            <option value="">Mọi đối tượng</option>
+            <option value="TheLoai">Thể loại</option>
+            <option value="Sach">Sách</option>
+            <option value="KhachHang">Khách hàng</option>
+            <option value="DonHang">Đơn hàng</option>
+            <option value="DuLieu">Dữ liệu</option>
+            <option value="TaiKhoan">Tài khoản</option>
+        </select>
+    </div>
+    <div class="col-6 col-md-3">
+        <select class="form-select" id="locHanhDong">
+            <option value="">Mọi hành động</option>
+            <option value="Them">Thêm</option>
+            <option value="Sua">Sửa</option>
+            <option value="Xoa">Xóa</option>
+            <option value="DoiTrangThai">Đổi trạng thái</option>
+            <option value="HuyDon">Hủy đơn</option>
+            <option value="NhapXml">Nhập XML</option>
+            <option value="DangKy">Đăng ký</option>
+            <option value="DoiMatKhau">Đổi mật khẩu</option>
+        </select>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-sm table-hover bang-quan-tri">
+        <thead>
+            <tr>
+                <th class="d-none d-md-table-cell">Mã</th>
+                <th>Người làm · Thời gian</th>
+                <th>Thao tác</th>
+                <th>Nội dung</th>
+            </tr>
+        </thead>
+        <tbody id="bangNhatKy">
+            <tr><td colspan="4" class="text-muted">Đang tải...</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="d-flex justify-content-between align-items-center">
+    <div class="small text-muted" id="tongSoNhatKy"></div>
+    <nav id="phanTrangNhatKy"></nav>
+</div>
+
+@section Scripts {
+    <script src="~/js/admin/nhat-ky.js" asp-append-version="true"></script>
+}

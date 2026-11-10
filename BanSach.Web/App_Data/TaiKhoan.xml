@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DanhSachTaiKhoan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="TaiKhoan.xsd">
+  <TaiKhoan MaTaiKhoan="TK001" VaiTro="Admin">
+    <TenDangNhap>admin</TenDangNhap>
+    <MatKhauHash>eiAZ5Fr8ap4VxtM4XTdUsMyju5U9hRL8WBZA6YZh8Gs=</MatKhauHash>
+    <Salt>CgGMk22mAcQLgT/oeHPX2A==</Salt>
+  </TaiKhoan>
+  <TaiKhoan MaTaiKhoan="TK002" VaiTro="KhachHang" MaKhachHang="KH001">
+    <TenDangNhap>vanan</TenDangNhap>
+    <MatKhauHash>NvUJs3cQLuZKFubJpnNWDCPrxRQGGizyhHCaaufa33w=</MatKhauHash>
+    <Salt>+9RMR59HdW2C4zrAwzP44A==</Salt>
+  </TaiKhoan>
+  <TaiKhoan MaTaiKhoan="TK003" VaiTro="KhachHang" MaKhachHang="KH002">
+    <TenDangNhap>bichngoc</TenDangNhap>
+    <MatKhauHash>1bwOh03afSw4qEfRSYb3iGozB6U0z1W2UJyes495nKQ=</MatKhauHash>
+    <Salt>fNJUZiLTsvkP7fY6ZbnjNw==</Salt>
+  </TaiKhoan>
+  <TaiKhoan MaTaiKhoan="TK004" VaiTro="KhachHang" MaKhachHang="KH003">
+    <TenDangNhap>hoangminh</TenDangNhap>
+    <MatKhauHash>th7BbmA1znCpwkKjBcLOxil9L4p4pv7o/qOlQPBBF6g=</MatKhauHash>
+    <Salt>Cps2umPbOabk4cv2FvbttQ==</Salt>
+  </TaiKhoan>
+  <TaiKhoan MaTaiKhoan="TK005" VaiTro="KhachHang" MaKhachHang="KH004">
+    <TenDangNhap>thuha</TenDangNhap>
+    <MatKhauHash>ezVy/mELSDbPxI3hLPWVeK28P1Mw34eY5sxKKiWntDk=</MatKhauHash>
+    <Salt>KRQeqELRC/VceudkV3YMsA==</Salt>
+  </TaiKhoan>
+</DanhSachTaiKhoan>

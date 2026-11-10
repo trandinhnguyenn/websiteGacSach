@@ -1,0 +1,24 @@
+@{
+    Layout = "_Layout";
+    var trangHienTai = ViewContext.RouteData.Values["action"]?.ToString();
+    string LopMenu(string trang) => trangHienTai == trang ? "dang-chon" : "";
+}
+
+<div class="quan-tri">
+    <nav class="menu-quan-tri" aria-label="Menu quản trị">
+        <a asp-controller="Admin" asp-action="Index" class="@LopMenu("Index")">Tổng quan</a>
+        <a asp-controller="Admin" asp-action="DonHang" class="@LopMenu("DonHang")">Đơn hàng</a>
+        <a asp-controller="Admin" asp-action="TheLoai" class="@LopMenu("TheLoai")">Thể loại</a>
+        <a asp-controller="Admin" asp-action="Sach" class="@LopMenu("Sach")">Sách</a>
+        <a asp-controller="Admin" asp-action="KhachHang" class="@LopMenu("KhachHang")">Khách hàng</a>
+        <a asp-controller="Admin" asp-action="NhatKy" class="@LopMenu("NhatKy")">Nhật ký</a>
+        <a asp-controller="Admin" asp-action="DuLieu" class="@LopMenu("DuLieu")">Dữ liệu XML</a>
+    </nav>
+    <section>
+        @RenderBody()
+    </section>
+</div>
+
+@section Scripts {
+    @await RenderSectionAsync("Scripts", required: false)
+}

@@ -1,0 +1,99 @@
+@{
+    ViewData["Title"] = "Dữ liệu XML";
+}
+
+<div class="tieu-de-trang">
+    <h1>Dữ liệu XML</h1>
+</div>
+
+<h2 class="h5 mb-2">Báo cáo XSLT</h2>
+<p class="text-muted small mb-3">Máy chủ lấy file XML trong App_Data, biến đổi bằng file .xslt thành trang HTML in được (XslCompiledTransform).</p>
+<div class="row g-3 mb-5">
+    <div class="col-md-4">
+        <a class="the-bao-cao" href="/BaoCao/TonKho" target="_blank" rel="noopener">
+            <span class="the-bao-cao__ten">Báo cáo tồn kho</span>
+            <span class="the-bao-cao__mo-ta">Sach.xml + TheLoai.xml → BaoCaoTonKho.xslt. Nhóm theo thể loại, đánh dấu sách hết và sắp hết.</span>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a class="the-bao-cao" href="/BaoCao/DoanhThu" target="_blank" rel="noopener">
+            <span class="the-bao-cao__ten">Báo cáo doanh thu</span>
+            <span class="the-bao-cao__mo-ta">DonHang.xml + Sach.xml → BaoCaoDoanhThu.xslt. Doanh thu theo tháng, sách bán chạy.</span>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a class="the-bao-cao" asp-action="DonHang">
+            <span class="the-bao-cao__ten">Hóa đơn</span>
+            <span class="the-bao-cao__mo-ta">DonHang.xml → HoaDon.xslt. Mở từ nút "In hóa đơn" trong chi tiết từng đơn.</span>
+        </a>
+    </div>
+</div>
+
+<h2 class="h5 mb-2">Các file dữ liệu</h2>
+<p class="text-muted small mb-3">Tải về để sao lưu hoặc sửa ngoài máy. Nhập lại sẽ được kiểm tra theo XSD và khóa ngoại trước khi ghi; bản cũ luôn được giữ dạng .bak.</p>
+<div class="table-responsive">
+    <table class="table bang-quan-tri">
+        <thead>
+            <tr>
+                <th>File</th>
+                <th>Nội dung</th>
+                <th class="text-end">Bản ghi</th>
+                <th class="text-end d-none d-md-table-cell">Dung lượng</th>
+                <th class="d-none d-md-table-cell">Sửa lần cuối</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="bangFile">
+            <tr><td colspan="6" class="text-muted">Đang tải...</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="modalNhap" tabindex="-1" aria-labelledby="tieuDeModalNhap">
+    <div class="modal-dialog">
+        <form class="modal-content" id="formNhap" novalidate>
+            <div class="modal-header">
+                <h2 class="modal-title h5" id="tieuDeModalNhap">Nhập file XML</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger d-none" data-khung-loi></div>
+
+                <div class="mb-3">
+                    <label for="fileNhap" class="form-label">File XML <span class="text-danger">*</span></label>
+                    <input type="file" class="form-control" id="fileNhap" accept=".xml,application/xml,text/xml" required>
+                    <div class="form-text">Tối đa 2MB, cùng cấu trúc với file "Tải XML" (cùng phần tử gốc, đúng file .xsd).</div>
+                </div>
+
+                <fieldset class="mb-3">
+                    <legend class="form-label fs-6">Cách nhập</legend>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="cheDo" id="cheDoGop" value="gop" checked>
+                        <label class="form-check-label" for="cheDoGop">
+                            Gộp vào dữ liệu đang có
+                            <span class="d-block small text-muted">Mã mới thì thêm, mã trùng thì cập nhật, bản ghi không có trong file được giữ nguyên.</span>
+                        </label>
+                    </div>
+                    <div class="form-check mt-2">
+                        <input class="form-check-input" type="radio" name="cheDo" id="cheDoThay" value="thay">
+                        <label class="form-check-label" for="cheDoThay">
+                            Thay toàn bộ
+                            <span class="d-block small text-muted">Bản ghi không có trong file sẽ bị xóa (trừ khi đang được file khác dùng tới).</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <div class="ket-qua-nhap d-none" id="ketQuaKiemTra" aria-live="polite"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button type="submit" class="btn btn-outline-primary" id="nutKiemTra">Kiểm tra</button>
+                <button type="button" class="btn btn-primary" id="nutNhap" disabled>Nhập dữ liệu</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/admin/du-lieu.js" asp-append-version="true"></script>
+}

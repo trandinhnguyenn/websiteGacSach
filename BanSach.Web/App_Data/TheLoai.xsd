@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Mã thể loại: TL + ít nhất 3 chữ số (TL001, TL002...) -->
+  <xs:simpleType name="MaTheLoaiType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="TL[0-9]{3,}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- xs:token không cho khoảng trắng đầu/cuối hay nhiều dấu cách liền nhau, cộng minLength=1 nên chuỗi rỗng hoặc toàn dấu cách bị chặn -->
+  <xs:simpleType name="TenTheLoaiType">
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1" />
+      <xs:maxLength value="100" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="MoTaType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="500" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="DanhSachTheLoai">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="TheLoai" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TenTheLoai" type="TenTheLoaiType" />
+              <xs:element name="MoTa" type="MoTaType" minOccurs="0" />
+            </xs:sequence>
+            <xs:attribute name="MaTheLoai" type="MaTheLoaiType" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+
+    <!-- Khóa chính: MaTheLoai không trùng -->
+    <xs:key name="KhoaMaTheLoai">
+      <xs:selector xpath="TheLoai" />
+      <xs:field xpath="@MaTheLoai" />
+    </xs:key>
+
+    <!-- Tên thể loại không trùng -->
+    <xs:unique name="DuyNhatTenTheLoai">
+      <xs:selector xpath="TheLoai" />
+      <xs:field xpath="TenTheLoai" />
+    </xs:unique>
+  </xs:element>
+
+</xs:schema>

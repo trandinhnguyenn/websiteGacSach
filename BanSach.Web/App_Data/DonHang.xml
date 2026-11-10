@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DanhSachDonHang xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DonHang.xsd">
+  <DonHang MaDonHang="DH001" MaKhachHang="KH001">
+    <NgayDat>2026-08-03T09:15:00</NgayDat>
+    <TrangThai>HoanThanh</TrangThai>
+    <NguoiNhan>Nguyễn Văn An</NguoiNhan>
+    <SoDienThoai>0905123456</SoDienThoai>
+    <DiaChiGiao>12 Nguyễn Văn Linh, P. Hải Châu, TP. Đà Nẵng</DiaChiGiao>
+    <ChiTiet MaSach="S001">
+      <SoLuong>2</SoLuong>
+      <DonGia>120000</DonGia>
+    </ChiTiet>
+    <ChiTiet MaSach="S009">
+      <SoLuong>1</SoLuong>
+      <DonGia>86000</DonGia>
+    </ChiTiet>
+  </DonHang>
+  <DonHang MaDonHang="DH002" MaKhachHang="KH002">
+    <NgayDat>2026-08-12T14:30:00</NgayDat>
+    <TrangThai>HoanThanh</TrangThai>
+    <NguoiNhan>Trần Thị Bích Ngọc</NguoiNhan>
+    <SoDienThoai>0935234567</SoDienThoai>
+    <DiaChiGiao>45 Lê Duẩn, P. Thanh Khê, TP. Đà Nẵng</DiaChiGiao>
+    <GhiChu>Giao giờ hành chính</GhiChu>
+    <ChiTiet MaSach="S005">
+      <SoLuong>1</SoLuong>
+      <DonGia>79000</DonGia>
+    </ChiTiet>
+    <ChiTiet MaSach="S006">
+      <SoLuong>1</SoLuong>
+      <DonGia>145000</DonGia>
+    </ChiTiet>
+    <ChiTiet MaSach="S012">
+      <SoLuong>2</SoLuong>
+      <DonGia>80000</DonGia>
+    </ChiTiet>
+  </DonHang>
+  <DonHang MaDonHang="DH003" MaKhachHang="KH003">
+    <NgayDat>2026-08-25T19:45:00</NgayDat>
+    <TrangThai>HoanThanh</TrangThai>
+    <NguoiNhan>Lê Hoàng Minh</NguoiNhan>
+    <SoDienThoai>0914345678</SoDienThoai>
+    <DiaChiGiao>78 Tôn Đức Thắng, P. Liên Chiểu, TP. Đà Nẵng</DiaChiGiao>
+    <ChiTiet MaSach="S017">
+      <SoLuong>1</SoLuong>
+      <DonGia>239000</DonGia>
+    </ChiTiet>
+    <ChiTiet MaSach="S019">
+      <SoLuong>1</SoLuong>
+      <DonGia>95000</DonGia>
+    </ChiTiet>
+  </DonHang>
+  <DonHang MaDonHang="DH004" MaKhachHang="KH001">
+    <NgayDat>2026-09-02T08:20:00</NgayDat>
+    <TrangThai>HoanThanh</TrangThai>
+    <NguoiNhan>Nguyễn Văn An</NguoiNhan>
+    <SoDienThoai>0905123456</SoDienThoai>
+    <DiaChiGiao>12 Nguyễn Văn Linh, P. Hải Châu, TP. Đà Nẵng</DiaChiGiao>
+    <ChiTiet MaSach="S002">
+      <SoLuong>1</SoLuong>
+      <DonGia>110000</DonGia>
+    </ChiTiet>
+    <ChiTiet MaSach="S014">
+      <SoLuong>3</SoLuong>
+      <DonGia>45000</DonGia>
+    </ChiTiet>
+  </DonHang>
+  <DonHang MaDonHang="DH005" MaKhachHang="KH004">
+    <NgayDat>2026-09-14T10:05:00</NgayDat>
+    <TrangThai>DaHuy</TrangThai>
+    <NguoiNhan>Phạm Thu Hà</NguoiNhan>
+    <SoDienThoai>0987456789</SoDienThoai>
+    <DiaChiGiao>23 Lê Văn Hiến, P. Ngũ Hành Sơn, TP. Đà Nẵng</DiaChiGiao>
+    <GhiChu>Khách đổi ý</GhiChu>
+    <ChiTiet MaSach="S011">
+      <SoLuong>1</SoLuong>
+      <DonGia>105000</DonGia>
+    </ChiTiet>
+  </DonHang>
+  <DonHang MaDonHang="DH006" MaKhachHang="KH002">
+    <NgayDat>2026-09-20T16:40:00</NgayDat>
+    <TrangThai>HoanThanh</TrangThai>
+    <NguoiNhan>Trần Thị Bích Ngọc</NguoiNhan>
+    <SoDienThoai>0935234567</SoDienThoai>
+    <DiaChiGiao>45 Lê Duẩn, P. Thanh Khê, TP. Đà Nẵng</DiaChiGiao>
+    <ChiTiet MaSach="S009">
+      <SoLuong>2</SoLuong>
+      <DonGia>86000</DonGia>
+    </ChiTiet>
+    <ChiTiet MaSach="S001">
+      <SoLuong>1</SoLuong>
+      <DonGia>125000</DonGia>
+    </ChiTiet>
+    <ChiTiet MaSach="S015">
+      <SoLuong>4</SoLuong>
+      <DonGia>25000</DonGia>
+    </ChiTiet>
+  </DonHang>
+  <DonHang MaDonHang="DH007" MaKhachHang="KH003">
+    <NgayDat>2026-10-05T11:10:00</NgayDat>
+    <TrangThai>HoanThanh</TrangThai>
+    <NguoiNhan>Lê Hoàng Minh</NguoiNhan>
+    <SoDienThoai>0914345678</SoDienThoai>
+    <DiaChiGiao>78 Tôn Đức Thắng, P. Liên Chiểu, TP. Đà Nẵng</DiaChiGiao>
+    <GhiChu>Gọi trước khi giao</GhiChu>
+    <ChiTiet MaSach="S020">
+      <SoLuong>1</SoLuong>
+      <DonGia>99000</DonGia>
+    </ChiTiet>
+    <ChiTiet MaSach="S018">
+      <SoLuong>1</SoLuong>
+      <DonGia>199000</DonGia>
+    </ChiTiet>
+    <ChiTiet MaSach="S009">
+      <SoLuong>1</SoLuong>
+      <DonGia>86000</DonGia>
+    </ChiTiet>
+  </DonHang>
+  <DonHang MaDonHang="DH008" MaKhachHang="KH004">
+    <NgayDat>2026-10-15T13:25:00</NgayDat>
+    <TrangThai>DangGiao</TrangThai>
+    <NguoiNhan>Phạm Thu Hà</NguoiNhan>
+    <SoDienThoai>0987456789</SoDienThoai>
+    <DiaChiGiao>23 Lê Văn Hiến, P. Ngũ Hành Sơn, TP. Đà Nẵng</DiaChiGiao>
+    <ChiTiet MaSach="S007">
+      <SoLuong>2</SoLuong>
+      <DonGia>68000</DonGia>
+    </ChiTiet>
+    <ChiTiet MaSach="S013">
+      <SoLuong>1</SoLuong>
+      <DonGia>60000</DonGia>
+    </ChiTiet>
+  </DonHang>
+  <DonHang MaDonHang="DH009" MaKhachHang="KH001">
+    <NgayDat>2026-10-20T20:00:00</NgayDat>
+    <TrangThai>DangGiao</TrangThai>
+    <NguoiNhan>Nguyễn Văn An</NguoiNhan>
+    <SoDienThoai>0905123456</SoDienThoai>
+    <DiaChiGiao>12 Nguyễn Văn Linh, P. Hải Châu, TP. Đà Nẵng</DiaChiGiao>
+    <ChiTiet MaSach="S003">
+      <SoLuong>1</SoLuong>
+      <DonGia>75000</DonGia>
+    </ChiTiet>
+    <ChiTiet MaSach="S001">
+      <SoLuong>1</SoLuong>
+      <DonGia>125000</DonGia>
+    </ChiTiet>
+  </DonHang>
+  <DonHang MaDonHang="DH010" MaKhachHang="KH002">
+    <NgayDat>2026-10-24T15:50:00</NgayDat>
+    <TrangThai>ChoXacNhan</TrangThai>
+    <NguoiNhan>Trần Thị Bích Ngọc</NguoiNhan>
+    <SoDienThoai>0935234567</SoDienThoai>
+    <DiaChiGiao>45 Lê Duẩn, P. Thanh Khê, TP. Đà Nẵng</DiaChiGiao>
+    <ChiTiet MaSach="S016">
+      <SoLuong>1</SoLuong>
+      <DonGia>72000</DonGia>
+    </ChiTiet>
+    <ChiTiet MaSach="S010">
+      <SoLuong>1</SoLuong>
+      <DonGia>92000</DonGia>
+    </ChiTiet>
+  </DonHang>
+  <DonHang MaDonHang="DH011" MaKhachHang="KH001">
+    <NgayDat>2026-11-10T23:57:20</NgayDat>
+    <TrangThai>DaXacNhan</TrangThai>
+    <NguoiNhan>Nguyễn Văn An</NguoiNhan>
+    <SoDienThoai>0905123456</SoDienThoai>
+    <DiaChiGiao>12 Nguyễn Văn Linh, P. Hải Châu, TP. Đà Nẵng</DiaChiGiao>
+    <ChiTiet MaSach="S013">
+      <SoLuong>1</SoLuong>
+      <DonGia>60000</DonGia>
+    </ChiTiet>
+  </DonHang>
+</DanhSachDonHang>

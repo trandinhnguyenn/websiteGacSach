@@ -1,0 +1,47 @@
+@{
+    ViewData["Title"] = "Đăng nhập";
+    ViewData["ToanMan"] = true;
+}
+
+<div class="dang-nhap">
+    <!-- Một góc tường sách, chỉ để trang trí -->
+    <div class="dang-nhap__tuong" id="tuongDangNhap" aria-hidden="true"></div>
+
+    <div class="dang-nhap__form">
+        <h1 class="dang-nhap__tieu-de">Đăng nhập</h1>
+        <p class="dang-nhap__mo-ta">Để đặt sách và theo dõi đơn hàng của bạn.</p>
+
+        @if (ViewData["HetPhien"] is true)
+        {
+            <div class="alert alert-het-phien" role="status">
+                Phiên đăng nhập trước đã hết hiệu lực, có thể do mật khẩu tài khoản vừa được đổi ở nơi khác. Hãy đăng nhập lại.
+            </div>
+        }
+        <div class="alert alert-danger d-none" id="loiDangNhap"></div>
+
+        <form id="formDangNhap" novalidate data-quay-lai="@ViewData["QuayLai"]">
+            <div class="mb-3">
+                <label for="tenDangNhap" class="form-label">Tên đăng nhập</label>
+                <input type="text" class="form-control form-control-lg" id="tenDangNhap" maxlength="30" autocomplete="username" required autofocus>
+            </div>
+            <div class="mb-3">
+                <label for="matKhau" class="form-label">Mật khẩu</label>
+                <input type="password" class="form-control form-control-lg" id="matKhau" maxlength="100" autocomplete="current-password" required>
+            </div>
+            <div class="form-check mb-4">
+                <input class="form-check-input" type="checkbox" id="ghiNho">
+                <label class="form-check-label" for="ghiNho">Ghi nhớ đăng nhập trên máy này</label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg w-100" id="nutDangNhap">Đăng nhập</button>
+        </form>
+
+        <p class="dang-nhap__chuyen">
+            Chưa có tài khoản?
+            <a asp-controller="TaiKhoan" asp-action="DangKy" asp-route-returnUrl="@ViewData["QuayLai"]">Đăng ký</a>
+        </p>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/dang-nhap.js" asp-append-version="true"></script>
+}

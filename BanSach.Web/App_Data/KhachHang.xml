@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DanhSachKhachHang xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="KhachHang.xsd">
+  <KhachHang MaKhachHang="KH001">
+    <HoTen>Nguyễn Văn An</HoTen>
+    <SoDienThoai>0905123456</SoDienThoai>
+    <Email>an.nguyen@gmail.com</Email>
+    <DiaChi>12 Nguyễn Văn Linh, P. Hải Châu, TP. Đà Nẵng</DiaChi>
+  </KhachHang>
+  <KhachHang MaKhachHang="KH002">
+    <HoTen>Trần Thị Bích Ngọc</HoTen>
+    <SoDienThoai>0935234567</SoDienThoai>
+    <Email>ngoc.tran@gmail.com</Email>
+    <DiaChi>45 Lê Duẩn, P. Thanh Khê, TP. Đà Nẵng</DiaChi>
+  </KhachHang>
+  <KhachHang MaKhachHang="KH003">
+    <HoTen>Lê Hoàng Minh</HoTen>
+    <SoDienThoai>0914345678</SoDienThoai>
+    <Email>minh.le@gmail.com</Email>
+    <DiaChi>78 Tôn Đức Thắng, P. Liên Chiểu, TP. Đà Nẵng</DiaChi>
+  </KhachHang>
+  <KhachHang MaKhachHang="KH004">
+    <HoTen>Phạm Thu Hà</HoTen>
+    <SoDienThoai>0987456789</SoDienThoai>
+    <Email>ha.pham@gmail.com</Email>
+    <DiaChi>23 Lê Văn Hiến, P. Ngũ Hành Sơn, TP. Đà Nẵng</DiaChi>
+  </KhachHang>
+  <KhachHang MaKhachHang="KH005">
+    <HoTen>Võ Quốc Huy</HoTen>
+    <SoDienThoai>0962567890</SoDienThoai>
+    <DiaChi>56 Hoàng Diệu, P. Hải Châu, TP. Đà Nẵng</DiaChi>
+  </KhachHang>
+</DanhSachKhachHang>

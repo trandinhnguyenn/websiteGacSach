@@ -1,0 +1,63 @@
+@{
+    ViewData["Title"] = "Quản lý đơn hàng";
+}
+
+<div class="tieu-de-trang">
+    <h1>Đơn hàng</h1>
+</div>
+
+<!-- Lọc theo trạng thái: JavaScript dựng kèm số đơn của từng trạng thái -->
+<nav class="loc-the-loai loc-trang-thai" id="locTrangThai" aria-label="Lọc theo trạng thái"></nav>
+
+<div class="row g-2 mb-3">
+    <div class="col-md-6">
+        <input type="search" class="form-control" id="locTuKhoa" placeholder="Tìm mã đơn, tên khách, người nhận, số điện thoại" aria-label="Tìm đơn hàng">
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover bang-quan-tri">
+        <thead>
+            <tr>
+                <th>Mã</th>
+                <th>Ngày đặt</th>
+                <th>Khách hàng</th>
+                <th class="text-end">Số cuốn</th>
+                <th class="text-end">Tổng tiền</th>
+                <th>Trạng thái</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="bangDonHang">
+            <tr><td colspan="7" class="text-muted">Đang tải...</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="d-flex justify-content-between align-items-center">
+    <div class="small text-muted" id="tongSoDon"></div>
+    <nav id="phanTrangDon"></nav>
+</div>
+<div class="small text-muted mt-2">
+    Kho chỉ bị trừ khi xác nhận đơn. Hủy một đơn đã xác nhận hoặc đang giao sẽ cộng số sách đó lại vào kho.
+</div>
+
+<div class="modal fade" id="modalDon" tabindex="-1" aria-labelledby="tieuDeModalDon">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h5" id="tieuDeModalDon">Đơn hàng</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger d-none" data-khung-loi></div>
+                <div id="noiDungModalDon"></div>
+            </div>
+            <div class="modal-footer chan-modal-don" id="chanModalDon"></div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/admin/don-hang.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,51 @@
+@{
+    ViewData["Title"] = "Chi tiết đơn hàng";
+}
+
+<div id="trangDon" data-ma="@ViewData["MaDonHang"]">
+    <nav class="duong-dan" aria-label="Đường dẫn">
+        <a asp-controller="DonHang" asp-action="Index">Đơn hàng</a>
+        <span aria-hidden="true">/</span>
+        <span>@ViewData["MaDonHang"]</span>
+    </nav>
+
+    <div class="alert alert-dat-thanh-cong d-none" id="thongBaoDatXong" role="status">
+        <strong>Đã đặt hàng.</strong> Cửa hàng sẽ xác nhận đơn sớm. Bạn có thể hủy đơn khi đơn còn ở bước Chờ xác nhận.
+    </div>
+
+    <div class="d-none" id="noiDungDon">
+        <div class="dau-danh-muc">
+            <h1 class="dau-danh-muc__tieu-de" id="tieuDeDon"></h1>
+            <p class="dau-danh-muc__dem" id="ngayDatDon"></p>
+        </div>
+
+        <!-- 4 bước của một đơn: đây là một tiến trình thật nên dùng thanh các bước có thứ tự -->
+        <ol class="tien-trinh" id="tienTrinh"></ol>
+
+        <div class="trang-gio">
+            <div>
+                <h2 class="tieu-de-nho">Sách trong đơn</h2>
+                <div id="dsSachDon"></div>
+            </div>
+            <aside class="tom-tat">
+                <h2 class="tieu-de-nho">Giao đến</h2>
+                <p class="mb-1 fw-semibold" id="nguoiNhanDon"></p>
+                <p class="mb-1" id="sdtDon"></p>
+                <p class="mb-3" id="diaChiDon"></p>
+                <p class="small text-muted" id="ghiChuDon"></p>
+                <div class="tom-tat__dong tom-tat__dong--tong"><span>Tổng cộng</span><strong id="tongDon"></strong></div>
+                <a class="btn btn-outline-secondary w-100 mb-2" asp-controller="BaoCao" asp-action="HoaDon" asp-route-id="@ViewData["MaDonHang"]" target="_blank" rel="noopener">In hóa đơn</a>
+                <button type="button" class="btn btn-outline-danger w-100 d-none" id="nutHuyDon">Hủy đơn này</button>
+            </aside>
+        </div>
+    </div>
+
+    <div class="trang-trong d-none" id="khongThayDon">
+        <p>Không tìm thấy đơn hàng này trong tài khoản của bạn.</p>
+        <a class="btn btn-primary" asp-controller="DonHang" asp-action="Index">Xem đơn của tôi</a>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/don-hang.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,52 @@
+@{
+    ViewData["Title"] = "Đặt hàng";
+}
+
+<div class="dau-danh-muc">
+    <h1 class="dau-danh-muc__tieu-de">Đặt hàng</h1>
+</div>
+
+<div class="trang-gio" id="khungThanhToan">
+    <form class="form-giao-hang" id="formDatHang" novalidate>
+        <h2 class="tieu-de-nho">Giao hàng đến</h2>
+        <p class="text-muted">Đã điền sẵn từ hồ sơ của bạn, sửa ở đây chỉ áp dụng cho đơn này.</p>
+
+        <div class="alert alert-danger d-none" id="loiDatHang"></div>
+
+        <div class="mb-3">
+            <label class="form-label" for="nguoiNhan">Người nhận</label>
+            <input class="form-control form-control-lg" id="nguoiNhan" maxlength="100" autocomplete="name" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="soDienThoai">Số điện thoại</label>
+            <input class="form-control form-control-lg" id="soDienThoai" type="tel" maxlength="14" autocomplete="tel" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="diaChiGiao">Địa chỉ giao hàng</label>
+            <input class="form-control form-control-lg" id="diaChiGiao" maxlength="200" autocomplete="street-address" required>
+        </div>
+        <div class="mb-4">
+            <label class="form-label" for="ghiChu">Ghi chú cho cửa hàng (không bắt buộc)</label>
+            <textarea class="form-control" id="ghiChu" rows="3" maxlength="500" placeholder="Ví dụ: giao giờ hành chính, gọi trước khi giao"></textarea>
+        </div>
+        <p class="text-muted small">Thanh toán khi nhận hàng. Cửa hàng xác nhận đơn và trừ kho trước khi giao.</p>
+        <p class="tom-tat__ghi-chu" id="ghiChuHetHang" hidden></p>
+        <button type="submit" class="btn btn-primary btn-lg w-100" id="nutDatHang">Đặt hàng</button>
+    </form>
+
+    <aside class="tom-tat">
+        <h2 class="tieu-de-nho">Đơn của bạn</h2>
+        <div id="dsThanhToan"></div>
+        <div class="tom-tat__dong tom-tat__dong--tong"><span>Tổng cộng</span><strong id="tongThanhToan">0 ₫</strong></div>
+        <a class="small" asp-controller="GioHang" asp-action="Index">Sửa giỏ hàng</a>
+    </aside>
+</div>
+
+<div class="trang-trong d-none" id="gioTrong">
+    <p>Giỏ hàng đang trống nên chưa đặt hàng được.</p>
+    <a class="btn btn-primary" asp-controller="Sach" asp-action="Index">Xem sách</a>
+</div>
+
+@section Scripts {
+    <script src="~/js/thanh-toan.js" asp-append-version="true"></script>
+}

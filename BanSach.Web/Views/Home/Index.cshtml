@@ -1,0 +1,43 @@
+@{
+    ViewData["Title"] = "Trang chủ";
+    ViewData["ToanMan"] = true;
+}
+
+<section class="hero" aria-labelledby="tieuDeHero">
+    <!-- Tường bìa sách: JavaScript dựng từ GET /api/sach, chỉ để trang trí nên ẩn với trình đọc màn hình -->
+    <div class="hero__tuong tuong-vao" id="tuongSach" aria-hidden="true"></div>
+
+    <div class="container hero__noi-dung">
+        <h1 class="hero__tieu-de" id="tieuDeHero">Đọc chậm lại.<br> Nghĩ sâu hơn.</h1>
+        <p class="hero__mo-ta">Mỗi cuốn trên kệ đều được chọn kỹ. Đặt sách trên web, thanh toán khi nhận hàng.</p>
+        <a class="nut-sang" asp-controller="Sach" asp-action="Index">Xem tất cả sách</a>
+    </div>
+</section>
+
+<section class="phan" id="moi-ve" aria-labelledby="tieuDeMoiVe">
+    <div class="container">
+        <div class="phan__dau">
+            <div>
+                <h2 class="phan__tieu-de" id="tieuDeMoiVe">Mới về</h2>
+                <p class="phan__ghi-chu">Xếp theo năm xuất bản, mới nhất trước. <a href="/Sach">Xem tất cả sách</a></p>
+            </div>
+            <div class="dieu-khien-ke">
+                <button type="button" class="nut-tron" data-cuon="-1" aria-label="Cuộn kệ sang trái">‹</button>
+                <button type="button" class="nut-tron" data-cuon="1" aria-label="Cuộn kệ sang phải">›</button>
+            </div>
+        </div>
+        <div class="ke-sach ke-sach--tran" id="keMoiVe"></div>
+    </div>
+</section>
+
+<section class="phan" id="the-loai" aria-labelledby="tieuDeTheLoai">
+    <div class="container">
+        <h2 class="phan__tieu-de" id="tieuDeTheLoai">Thể loại</h2>
+        <p class="phan__ghi-chu">Bấm vào một thể loại để mở kệ sách của thể loại đó.</p>
+        <ul class="ds-the-loai" id="dsTheLoai"></ul>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="~/js/trang-chu.js" asp-append-version="true"></script>
+}

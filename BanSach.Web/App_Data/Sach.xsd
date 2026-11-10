@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Mã sách: S + ít nhất 3 chữ số (S001, S002...) -->
+  <xs:simpleType name="MaSachType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="S[0-9]{3,}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="MaTheLoaiType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="TL[0-9]{3,}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Chuỗi bắt buộc: không rỗng, không toàn khoảng trắng -->
+  <xs:simpleType name="ChuoiBatBuoc200">
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1" />
+      <xs:maxLength value="200" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ChuoiBatBuoc100">
+    <xs:restriction base="xs:token">
+      <xs:minLength value="1" />
+      <xs:maxLength value="100" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="NamXuatBanType">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1900" />
+      <xs:maxInclusive value="2100" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Giá bán phải > 0 (minExclusive), tính bằng VNĐ -->
+  <xs:simpleType name="GiaBanType">
+    <xs:restriction base="xs:decimal">
+      <xs:minExclusive value="0" />
+      <xs:maxInclusive value="100000000" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Tồn kho phải >= 0 -->
+  <xs:simpleType name="SoLuongTonType">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="1000000" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="HinhAnhType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Za-z0-9_\-]+\.(png|jpg|jpeg|gif|webp)" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="MoTaType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2000" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="DanhSachSach">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Sach" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <!-- xs:sequence: các element con phải đúng thứ tự này -->
+            <xs:sequence>
+              <xs:element name="TenSach" type="ChuoiBatBuoc200" />
+              <xs:element name="TacGia" type="ChuoiBatBuoc100" />
+              <xs:element name="NhaXuatBan" type="ChuoiBatBuoc100" />
+              <xs:element name="NamXuatBan" type="NamXuatBanType" />
+              <xs:element name="GiaBan" type="GiaBanType" />
+              <xs:element name="SoLuongTon" type="SoLuongTonType" />
+              <xs:element name="HinhAnh" type="HinhAnhType" minOccurs="0" />
+              <xs:element name="MoTa" type="MoTaType" minOccurs="0" />
+            </xs:sequence>
+            <xs:attribute name="MaSach" type="MaSachType" use="required" />
+            <xs:attribute name="MaTheLoai" type="MaTheLoaiType" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+
+    <!-- Khóa chính: MaSach không trùng. MaTheLoai trỏ sang file khác nên XSD không keyref được, BLL tự kiểm tra -->
+    <xs:key name="KhoaMaSach">
+      <xs:selector xpath="Sach" />
+      <xs:field xpath="@MaSach" />
+    </xs:key>
+  </xs:element>
+
+</xs:schema>

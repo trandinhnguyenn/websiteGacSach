@@ -1,0 +1,67 @@
+@{
+    ViewData["Title"] = "Đăng ký";
+    ViewData["ToanMan"] = true;
+}
+
+<div class="dang-nhap">
+    <div class="dang-nhap__tuong" id="tuongDangNhap" aria-hidden="true"></div>
+
+    <div class="dang-nhap__form">
+        <h1 class="dang-nhap__tieu-de">Tạo tài khoản</h1>
+        <p class="dang-nhap__mo-ta">Để đặt sách và xem lại các đơn đã đặt.</p>
+
+        <div class="alert alert-danger d-none" id="loiDangKy"></div>
+        <div class="alert alert-dat-thanh-cong d-none" id="xongDangKy" role="status"></div>
+
+        <form id="formDangKy" novalidate data-quay-lai="@ViewData["QuayLai"]">
+            <div class="mb-3">
+                <label for="hoTen" class="form-label">Họ tên</label>
+                <input type="text" class="form-control" id="hoTen" maxlength="100" autocomplete="name" required autofocus>
+            </div>
+            <div class="row g-3 mb-3">
+                <div class="col-sm-6">
+                    <label for="soDienThoai" class="form-label">Số điện thoại</label>
+                    <input type="tel" class="form-control" id="soDienThoai" maxlength="14" autocomplete="tel" required>
+                </div>
+                <div class="col-sm-6">
+                    <label for="email" class="form-label">Email (không bắt buộc)</label>
+                    <input type="email" class="form-control" id="email" maxlength="100" autocomplete="email">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="diaChi" class="form-label">Địa chỉ giao hàng</label>
+                <input type="text" class="form-control" id="diaChi" maxlength="200" autocomplete="street-address" required>
+            </div>
+            <div class="mb-3">
+                <label for="tenDangNhap" class="form-label">Tên đăng nhập</label>
+                <input type="text" class="form-control" id="tenDangNhap" maxlength="30" autocomplete="username" required>
+                <div class="form-text">3-30 ký tự: chữ không dấu, số, dấu chấm hoặc gạch dưới.</div>
+            </div>
+            <div class="row g-3 mb-4">
+                <div class="col-sm-6">
+                    <label for="matKhau" class="form-label">Mật khẩu</label>
+                    <input type="password" class="form-control" id="matKhau" maxlength="100" autocomplete="new-password" required aria-describedby="quyTacMatKhau">
+                    <ul class="quy-tac-mat-khau" id="quyTacMatKhau">
+                        <li data-quy-tac="doDai">Từ 8 ký tự trở lên</li>
+                        <li data-quy-tac="chuVaSo">Có cả chữ và số</li>
+                        <li data-quy-tac="khongChuaTen">Không chứa tên đăng nhập</li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <label for="nhapLaiMatKhau" class="form-label">Nhập lại mật khẩu</label>
+                    <input type="password" class="form-control" id="nhapLaiMatKhau" maxlength="100" autocomplete="new-password" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg w-100" id="nutDangKy">Tạo tài khoản</button>
+        </form>
+
+        <p class="dang-nhap__chuyen">
+            Đã có tài khoản?
+            <a asp-controller="TaiKhoan" asp-action="DangNhap" asp-route-returnUrl="@ViewData["QuayLai"]">Đăng nhập</a>
+        </p>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/dang-ky.js" asp-append-version="true"></script>
+}

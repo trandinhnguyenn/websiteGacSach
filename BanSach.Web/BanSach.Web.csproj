@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>BanSach.Web</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BanSach.BLL\BanSach.BLL.csproj" />
+    <ProjectReference Include="..\BanSach.DTO\BanSach.DTO.csproj" />
+  </ItemGroup>
+
+  <!-- App_Data chứa file XML/XSD: không copy sang bin, app đọc/ghi trực tiếp thư mục project để mở file ra là thấy thay đổi -->
+  <ItemGroup>
+    <None Update="App_Data\**" CopyToOutputDirectory="Never" />
+    <Watch Remove="App_Data\**" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="MaTaiKhoanType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="TK[0-9]{3,}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="MaKhachHangType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="KH[0-9]{3,}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Vai trò chỉ nhận 1 trong 2 giá trị -->
+  <xs:simpleType name="VaiTroType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Admin" />
+      <xs:enumeration value="KhachHang" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Tên đăng nhập: 3-30 ký tự chữ không dấu, số, dấu chấm, gạch dưới -->
+  <xs:simpleType name="TenDangNhapType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Za-z0-9_.]{3,30}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Hash và salt lưu dạng base64; xs:base64Binary kiểm tra đúng định dạng base64 -->
+  <xs:simpleType name="ChuoiBase64">
+    <xs:restriction base="xs:base64Binary">
+      <xs:minLength value="16" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="DanhSachTaiKhoan">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="TaiKhoan" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TenDangNhap" type="TenDangNhapType" />
+              <xs:element name="MatKhauHash" type="ChuoiBase64" />
+              <xs:element name="Salt" type="ChuoiBase64" />
+            </xs:sequence>
+            <xs:attribute name="MaTaiKhoan" type="MaTaiKhoanType" use="required" />
+            <xs:attribute name="VaiTro" type="VaiTroType" use="required" />
+            <!-- Chỉ tài khoản khách hàng mới có MaKhachHang; XSD 1.0 không ràng buộc có điều kiện được nên BLL kiểm tra -->
+            <xs:attribute name="MaKhachHang" type="MaKhachHangType" use="optional" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+
+    <xs:key name="KhoaMaTaiKhoan">
+      <xs:selector xpath="TaiKhoan" />
+      <xs:field xpath="@MaTaiKhoan" />
+    </xs:key>
+
+    <xs:unique name="DuyNhatTenDangNhap">
+      <xs:selector xpath="TaiKhoan" />
+      <xs:field xpath="TenDangNhap" />
+    </xs:unique>
+
+    <!-- Mỗi khách hàng tối đa 1 tài khoản -->
+    <xs:unique name="DuyNhatMaKhachHang">
+      <xs:selector xpath="TaiKhoan" />
+      <xs:field xpath="@MaKhachHang" />
+    </xs:unique>
+  </xs:element>
+
+</xs:schema>

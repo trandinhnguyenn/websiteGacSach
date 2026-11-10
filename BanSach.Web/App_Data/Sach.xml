@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DanhSachSach xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Sach.xsd">
+  <Sach MaSach="S001" MaTheLoai="TL001">
+    <TenSach>Tôi thấy hoa vàng trên cỏ xanh</TenSach>
+    <TacGia>Nguyễn Nhật Ánh</TacGia>
+    <NhaXuatBan>NXB Trẻ</NhaXuatBan>
+    <NamXuatBan>2018</NamXuatBan>
+    <GiaBan>125000</GiaBan>
+    <SoLuongTon>25</SoLuongTon>
+    <HinhAnh>S001.png</HinhAnh>
+    <MoTa>Thiều mười hai tuổi, sống cùng em trai Tường ở một làng quê nghèo miền Trung những năm tám mươi. Hai anh em lớn lên giữa ruộng đồng, trò chơi trẻ con, nỗi sợ ma và những trận đòn của người lớn. Rồi Thiều thích cô bạn Mận, và lần đầu biết ghen, biết giận, biết làm tổn thương người mình thương nhất là đứa em hiền lành.
+Nguyễn Nhật Ánh kể chuyện bằng giọng của chính cậu bé, vừa hồn nhiên vừa day dứt. Cuốn sách hợp với người muốn đọc lại tuổi thơ mình, và với ai từng có lỗi với anh chị em mà chưa kịp nói lời xin lỗi.</MoTa>
+  </Sach>
+  <Sach MaSach="S002" MaTheLoai="TL001">
+    <TenSach>Mắt biếc</TenSach>
+    <TacGia>Nguyễn Nhật Ánh</TacGia>
+    <NhaXuatBan>NXB Trẻ</NhaXuatBan>
+    <NamXuatBan>2019</NamXuatBan>
+    <GiaBan>110000</GiaBan>
+    <SoLuongTon>18</SoLuongTon>
+    <HinhAnh>S002.png</HinhAnh>
+    <MoTa>Ngạn yêu Hà Lan, cô bạn có đôi mắt biếc, từ những ngày còn đi học ở làng Đo Đo. Hà Lan lên thành phố, đổi thay theo nhịp sống mới, còn Ngạn vẫn giữ nguyên tình cảm ấy qua bao nhiêu năm, kể cả khi cô đã thuộc về người khác.
+Đây là một trong những truyện buồn nhất của Nguyễn Nhật Ánh: về mối tình đơn phương, về quê nhà và về cái giá của việc không chịu buông. Văn ngắn, nhẹ, nhưng đọng lại rất lâu sau trang cuối.</MoTa>
+  </Sach>
+  <Sach MaSach="S003" MaTheLoai="TL001">
+    <TenSach>Số đỏ</TenSach>
+    <TacGia>Vũ Trọng Phụng</TacGia>
+    <NhaXuatBan>NXB Văn học</NhaXuatBan>
+    <NamXuatBan>2020</NamXuatBan>
+    <GiaBan>75000</GiaBan>
+    <SoLuongTon>12</SoLuongTon>
+    <HinhAnh>S003.png</HinhAnh>
+    <MoTa>Xuân Tóc Đỏ là kẻ nhặt bóng quần vợt, chẳng có học hành gì, nhưng nhờ may mắn và cái miệng lém lỉnh mà leo dần lên thành "đốc tờ", "giáo sư quần vợt", rồi thành nhân vật được cả giới thượng lưu Hà Nội săn đón.
+Qua những phong trào Âu hóa, cải cách y phục và đám tang mà ai cũng mừng thầm, Vũ Trọng Phụng vẽ lại xã hội thành thị những năm 1930 bằng tiếng cười cay nghiệt. Gần một thế kỷ trôi qua, nhiều câu thoại trong sách vẫn được người đọc trích lại như mới viết hôm qua.</MoTa>
+  </Sach>
+  <Sach MaSach="S004" MaTheLoai="TL001">
+    <TenSach>Nỗi buồn chiến tranh</TenSach>
+    <TacGia>Bảo Ninh</TacGia>
+    <NhaXuatBan>NXB Trẻ</NhaXuatBan>
+    <NamXuatBan>2019</NamXuatBan>
+    <GiaBan>98000</GiaBan>
+    <SoLuongTon>5</SoLuongTon>
+    <HinhAnh>S004.png</HinhAnh>
+    <MoTa>Sau chiến tranh, Kiên theo đội thu gom hài cốt quay lại những cánh rừng nơi đồng đội đã nằm xuống. Từ đó, ký ức ùa về không theo thứ tự nào: những trận đánh, những người đã chết, mối tình đầu với Phương bị chiến tranh làm tan vỡ.
+Bảo Ninh viết về chiến tranh từ phía nỗi đau của người lính, không phải từ chiến công. Cuốn tiểu thuyết đoạt giải Hội Nhà văn Việt Nam năm 1991 và được dịch ra nhiều thứ tiếng. Đây là một cuốn sách khó đọc nhanh, nên đọc chậm.</MoTa>
+  </Sach>
+  <Sach MaSach="S005" MaTheLoai="TL002">
+    <TenSach>Nhà giả kim</TenSach>
+    <TacGia>Paulo Coelho</TacGia>
+    <NhaXuatBan>NXB Hội Nhà Văn</NhaXuatBan>
+    <NamXuatBan>2020</NamXuatBan>
+    <GiaBan>79000</GiaBan>
+    <SoLuongTon>40</SoLuongTon>
+    <HinhAnh>S005.png</HinhAnh>
+    <MoTa>Santiago là một cậu bé chăn cừu ở xứ Andalusia. Một giấc mơ lặp lại thôi thúc cậu bán đàn cừu, băng qua sa mạc châu Phi để tìm kho báu được hứa hẹn ở Kim tự tháp Ai Cập. Trên đường đi, cậu gặp một vị vua già, một người bán pha lê, một cô gái ở ốc đảo và nhà giả kim.
+Paulo Coelho kể một câu chuyện ngụ ngôn giản dị về việc lắng nghe trái tim và theo đuổi điều mình thật sự muốn. Sách mỏng, đọc được trong một buổi, nhưng nhiều người đọc lại nhiều lần ở những giai đoạn khác nhau của đời mình.</MoTa>
+  </Sach>
+  <Sach MaSach="S006" MaTheLoai="TL002">
+    <TenSach>Rừng Na Uy</TenSach>
+    <TacGia>Haruki Murakami</TacGia>
+    <NhaXuatBan>NXB Hội Nhà Văn</NhaXuatBan>
+    <NamXuatBan>2018</NamXuatBan>
+    <GiaBan>145000</GiaBan>
+    <SoLuongTon>15</SoLuongTon>
+    <HinhAnh>S006.png</HinhAnh>
+    <MoTa>Một bài hát của The Beatles vang lên trên máy bay khiến Toru Watanabe, khi đó ba mươi bảy tuổi, nhớ lại những năm sinh viên ở Tokyo cuối thập niên 1960. Đó là quãng đời gắn với Naoko, người yêu của bạn thân đã mất, và Midori, cô bạn cùng lớp sống động, thẳng thắn.
+Haruki Murakami viết về tuổi trẻ, cô đơn, mất mát và việc học cách sống tiếp. Đây là tiểu thuyết hiện thực nhất của ông, không có yếu tố kỳ ảo, và cũng là cuốn đưa tên ông đến với đông đảo độc giả.</MoTa>
+  </Sach>
+  <Sach MaSach="S007" MaTheLoai="TL002">
+    <TenSach>Hoàng tử bé</TenSach>
+    <TacGia>Antoine de Saint-Exupéry</TacGia>
+    <NhaXuatBan>NXB Hội Nhà Văn</NhaXuatBan>
+    <NamXuatBan>2019</NamXuatBan>
+    <GiaBan>68000</GiaBan>
+    <SoLuongTon>22</SoLuongTon>
+    <HinhAnh>S007.png</HinhAnh>
+    <MoTa>Một phi công gặp nạn giữa sa mạc Sahara và gặp một cậu bé tóc vàng đến từ một tiểu tinh cầu nhỏ xíu. Cậu kể về bông hồng kiêu kỳ của mình, về những hành tinh có ông vua, người nghiện rượu, nhà buôn đếm sao, và về con cáo đã dạy cậu thế nào là cảm hóa.
+Antoine de Saint-Exupéry tự vẽ minh họa cho câu chuyện của mình. Sách viết cho trẻ em nhưng người lớn đọc mới thấm: những điều quan trọng nhất thường không nhìn thấy được bằng mắt.</MoTa>
+  </Sach>
+  <Sach MaSach="S008" MaTheLoai="TL002">
+    <TenSach>Ông già và biển cả</TenSach>
+    <TacGia>Ernest Hemingway</TacGia>
+    <NhaXuatBan>NXB Văn học</NhaXuatBan>
+    <NamXuatBan>2018</NamXuatBan>
+    <GiaBan>55000</GiaBan>
+    <SoLuongTon>10</SoLuongTon>
+    <HinhAnh>S008.png</HinhAnh>
+    <MoTa>Lão Santiago đã tám mươi tư ngày ra khơi mà không bắt được con cá nào. Ngày thứ tám mươi lăm, lão chèo thuyền ra thật xa và câu được một con cá kiếm lớn hơn cả chiếc thuyền. Cuộc giằng co kéo dài suốt ba ngày đêm, rồi đến lượt bầy cá mập kéo tới.
+Hemingway viết bằng câu văn ngắn, ít chữ mà sức nặng lớn. Truyện vừa này giúp ông nhận giải Pulitzer và góp phần đưa ông đến giải Nobel Văn học. Đọc để hiểu một con người có thể thua nhưng không chịu khuất phục.</MoTa>
+  </Sach>
+  <Sach MaSach="S009" MaTheLoai="TL003">
+    <TenSach>Đắc nhân tâm</TenSach>
+    <TacGia>Dale Carnegie</TacGia>
+    <NhaXuatBan>NXB Tổng hợp TP.HCM</NhaXuatBan>
+    <NamXuatBan>2021</NamXuatBan>
+    <GiaBan>86000</GiaBan>
+    <SoLuongTon>50</SoLuongTon>
+    <HinhAnh>S009.png</HinhAnh>
+    <MoTa>Ra đời từ những lớp học giao tiếp mà Dale Carnegie đứng lớp nhiều năm, cuốn sách tập hợp các nguyên tắc đơn giản: đừng chỉ trích, hãy khen thật lòng, nhớ tên người khác, lắng nghe nhiều hơn nói, và nhìn vấn đề từ phía người đối diện.
+Mỗi nguyên tắc đi kèm những câu chuyện có thật về người nổi tiếng lẫn người bình thường. Gần một thế kỷ sau lần in đầu, đây vẫn là cuốn sách kỹ năng giao tiếp được nhắc đến nhiều nhất, hợp với cả sinh viên sắp đi làm lẫn người đã đi làm lâu năm.</MoTa>
+  </Sach>
+  <Sach MaSach="S010" MaTheLoai="TL003">
+    <TenSach>Nhà lãnh đạo không chức danh</TenSach>
+    <TacGia>Robin Sharma</TacGia>
+    <NhaXuatBan>NXB Trẻ</NhaXuatBan>
+    <NamXuatBan>2019</NamXuatBan>
+    <GiaBan>92000</GiaBan>
+    <SoLuongTon>2</SoLuongTon>
+    <HinhAnh>S010.png</HinhAnh>
+    <MoTa>Blake Davis là cựu binh, làm nhân viên ở một hiệu sách và gần như mất hết động lực. Một ngày, ông gặp Tommy, một người đàn ông lớn tuổi lập dị, và được dẫn đi gặp bốn người thầy, mỗi người dạy một bài học về cách làm việc và sống.
+Robin Sharma dùng câu chuyện đó để nói một ý chính: lãnh đạo không phụ thuộc vào chức danh. Ai cũng có thể làm việc tận tâm, đổi mới và tạo ảnh hưởng tích cực ở đúng vị trí của mình. Sách dễ đọc, hợp với người mới đi làm.</MoTa>
+  </Sach>
+  <Sach MaSach="S011" MaTheLoai="TL003">
+    <TenSach>Cha giàu cha nghèo</TenSach>
+    <TacGia>Robert Kiyosaki</TacGia>
+    <NhaXuatBan>NXB Trẻ</NhaXuatBan>
+    <NamXuatBan>2020</NamXuatBan>
+    <GiaBan>105000</GiaBan>
+    <SoLuongTon>14</SoLuongTon>
+    <HinhAnh>S011.png</HinhAnh>
+    <MoTa>Robert Kiyosaki lớn lên với hai người cha: cha ruột có học vị cao nhưng luôn chật vật vì tiền, và cha của người bạn thân, bỏ học giữa chừng nhưng trở thành người giàu có. Hai người dạy ông hai cách nghĩ hoàn toàn trái ngược về tiền bạc.
+Từ đó, cuốn sách giải thích những khái niệm như tài sản, tiêu sản, dòng tiền, và vì sao nhà trường hiếm khi dạy về tài chính cá nhân. Cách viết dễ hiểu, nhiều ví dụ đời thường, hợp làm cuốn nhập môn cho người muốn quản lý tiền của mình tốt hơn.</MoTa>
+  </Sach>
+  <Sach MaSach="S012" MaTheLoai="TL003">
+    <TenSach>Tuổi trẻ đáng giá bao nhiêu</TenSach>
+    <TacGia>Rosie Nguyễn</TacGia>
+    <NhaXuatBan>NXB Hội Nhà Văn</NhaXuatBan>
+    <NamXuatBan>2018</NamXuatBan>
+    <GiaBan>80000</GiaBan>
+    <SoLuongTon>30</SoLuongTon>
+    <HinhAnh>S012.png</HinhAnh>
+    <MoTa>Rosie Nguyễn viết cho những người trẻ đang loay hoay giữa việc học, việc làm và việc đi. Sách chia sẻ về thói quen đọc, tự học, những chuyến đi xa, những công việc đầu đời và cả những lần thất bại của chính tác giả.
+Giọng văn gần gũi như lời một người chị đi trước, không lên lớp. Cuốn sách hợp với sinh viên đang tự hỏi thời gian tuổi trẻ của mình nên dành cho điều gì.</MoTa>
+  </Sach>
+  <Sach MaSach="S013" MaTheLoai="TL004">
+    <TenSach>Dế Mèn phiêu lưu ký</TenSach>
+    <TacGia>Tô Hoài</TacGia>
+    <NhaXuatBan>NXB Kim Đồng</NhaXuatBan>
+    <NamXuatBan>2021</NamXuatBan>
+    <GiaBan>60000</GiaBan>
+    <SoLuongTon>34</SoLuongTon>
+    <HinhAnh>S013.png</HinhAnh>
+    <MoTa>Dế Mèn là chàng dế khỏe mạnh nhưng kiêu căng. Trò đùa dại dột của cậu khiến Dế Choắt hàng xóm mất mạng, và bài học đầu đời ấy theo Dế Mèn suốt chuyến phiêu lưu sau đó: qua những vùng đất lạ, những cuộc đánh nhau, kết bạn với Dế Trũi và học cách sống có trách nhiệm.
+Tô Hoài viết truyện từ năm 1941, đến nay vẫn là cuốn sách thiếu nhi được nhiều thế hệ người Việt đọc nhất. Văn tả loài vật sống động, hợp đọc to cho trẻ nghe.</MoTa>
+  </Sach>
+  <Sach MaSach="S014" MaTheLoai="TL004">
+    <TenSach>Kính vạn hoa - Tập 1</TenSach>
+    <TacGia>Nguyễn Nhật Ánh</TacGia>
+    <NhaXuatBan>NXB Kim Đồng</NhaXuatBan>
+    <NamXuatBan>2020</NamXuatBan>
+    <GiaBan>45000</GiaBan>
+    <SoLuongTon>20</SoLuongTon>
+    <HinhAnh>S014.png</HinhAnh>
+    <MoTa>Quý ròm thông minh mà gầy nhom, Tiểu Long to khỏe mà hiền lành, nhỏ Hạnh chăm chỉ và luôn là người giảng hòa. Ba người bạn cùng lớp cùng nhau trải qua đủ chuyện học trò: thi cử, bày trò, giúp bạn, và cả những vụ rắc rối nho nhỏ trong xóm.
+Kính vạn hoa là bộ truyện dài của Nguyễn Nhật Ánh, mỗi tập là một câu chuyện trọn vẹn. Tập 1 mở đầu cho tình bạn của nhóm ba người, đọc vui, nhẹ nhàng, hợp với học sinh tiểu học và trung học cơ sở.</MoTa>
+  </Sach>
+  <Sach MaSach="S015" MaTheLoai="TL004">
+    <TenSach>Doraemon - Tập 1</TenSach>
+    <TacGia>Fujiko F. Fujio</TacGia>
+    <NhaXuatBan>NXB Kim Đồng</NhaXuatBan>
+    <NamXuatBan>2022</NamXuatBan>
+    <GiaBan>25000</GiaBan>
+    <SoLuongTon>60</SoLuongTon>
+    <HinhAnh>S015.png</HinhAnh>
+    <MoTa>Nobita học kém, lười biếng và hay bị bắt nạt. Để thay đổi tương lai của gia đình, cháu chắt của cậu ở thế kỷ 22 gửi về một chú mèo máy tên Doraemon, mang theo chiếc túi thần kỳ chứa đủ loại bảo bối.
+Mỗi mẩu truyện ngắn là một tình huống đời thường, một bảo bối và một bài học nho nhỏ. Tập 1 giới thiệu cuộc gặp gỡ đầu tiên giữa Nobita và Doraemon, hợp cho bạn đọc nhỏ tuổi lẫn người lớn muốn đọc lại tuổi thơ.</MoTa>
+  </Sach>
+  <Sach MaSach="S016" MaTheLoai="TL004">
+    <TenSach>Totto-chan bên cửa sổ</TenSach>
+    <TacGia>Kuroyanagi Tetsuko</TacGia>
+    <NhaXuatBan>NXB Hội Nhà Văn</NhaXuatBan>
+    <NamXuatBan>2019</NamXuatBan>
+    <GiaBan>72000</GiaBan>
+    <SoLuongTon>1</SoLuongTon>
+    <HinhAnh>S016.png</HinhAnh>
+    <MoTa>Totto-chan bị đuổi khỏi trường cũ vì quá hiếu động. Cô bé được chuyển sang trường Tomoe, nơi lớp học là những toa tàu cũ, học sinh được tự chọn môn học trong ngày, và thầy hiệu trưởng sẵn sàng ngồi nghe cô bé kể chuyện suốt bốn tiếng đồng hồ.
+Kuroyanagi Tetsuko kể lại chính tuổi thơ của mình. Cuốn sách vừa là hồi ký trong trẻo, vừa gợi nhiều suy nghĩ cho cha mẹ và thầy cô về cách tôn trọng cá tính của trẻ.</MoTa>
+  </Sach>
+  <Sach MaSach="S017" MaTheLoai="TL005">
+    <TenSach>Clean Code - Mã sạch</TenSach>
+    <TacGia>Robert C. Martin</TacGia>
+    <NhaXuatBan>NXB Dân Trí</NhaXuatBan>
+    <NamXuatBan>2021</NamXuatBan>
+    <GiaBan>239000</GiaBan>
+    <SoLuongTon>8</SoLuongTon>
+    <HinhAnh>S017.png</HinhAnh>
+    <MoTa>Code chạy được chưa chắc đã là code tốt. Robert C. Martin chỉ ra những nguyên tắc để viết code dễ đọc và dễ sửa: đặt tên có ý nghĩa, hàm ngắn và chỉ làm một việc, chú thích đúng chỗ, xử lý lỗi rõ ràng, viết kiểm thử.
+Nửa sau cuốn sách là các ví dụ tái cấu trúc code thực tế từng bước. Đây là sách nên đọc khi bạn đã viết được chương trình và bắt đầu phải đọc lại code của chính mình sau vài tháng.</MoTa>
+  </Sach>
+  <Sach MaSach="S018" MaTheLoai="TL005">
+    <TenSach>The Pragmatic Programmer</TenSach>
+    <TacGia>Andrew Hunt, David Thomas</TacGia>
+    <NhaXuatBan>NXB Thanh Niên</NhaXuatBan>
+    <NamXuatBan>2020</NamXuatBan>
+    <GiaBan>199000</GiaBan>
+    <SoLuongTon>5</SoLuongTon>
+    <HinhAnh>S018.png</HinhAnh>
+    <MoTa>Andrew Hunt và David Thomas gom những kinh nghiệm thực tế thành các mẹo ngắn cho người làm phần mềm: chịu trách nhiệm với công việc của mình, không lặp lại tri thức (DRY), sửa "cửa sổ vỡ" sớm, tự động hóa việc lặp lại, và luôn học thêm công cụ mới.
+Sách không gắn với ngôn ngữ lập trình nào nên đọc được ở bất kỳ giai đoạn nào trong nghề. Mỗi mục ngắn, có thể đọc theo thứ tự hoặc mở ngẫu nhiên.</MoTa>
+  </Sach>
+  <Sach MaSach="S019" MaTheLoai="TL005">
+    <TenSach>Cấu trúc dữ liệu và giải thuật</TenSach>
+    <TacGia>Đỗ Xuân Lôi</TacGia>
+    <NhaXuatBan>NXB Đại học Quốc gia Hà Nội</NhaXuatBan>
+    <NamXuatBan>2018</NamXuatBan>
+    <GiaBan>95000</GiaBan>
+    <SoLuongTon>12</SoLuongTon>
+    <HinhAnh>S019.png</HinhAnh>
+    <MoTa>Giáo trình của Đỗ Xuân Lôi là sách nền tảng quen thuộc với sinh viên công nghệ thông tin. Sách đi từ mảng, danh sách liên kết, ngăn xếp, hàng đợi đến cây, đồ thị, cùng các giải thuật sắp xếp, tìm kiếm và cách đánh giá độ phức tạp.
+Mỗi chương có trình bày giải thuật rõ ràng và bài tập cuối chương. Hợp làm sách học chính hoặc sách ôn lại kiến thức trước các kỳ phỏng vấn kỹ thuật.</MoTa>
+  </Sach>
+  <Sach MaSach="S020" MaTheLoai="TL005">
+    <TenSach>Tôi đi code dạo</TenSach>
+    <TacGia>Phạm Huy Hoàng</TacGia>
+    <NhaXuatBan>NXB Thanh Niên</NhaXuatBan>
+    <NamXuatBan>2019</NamXuatBan>
+    <GiaBan>99000</GiaBan>
+    <SoLuongTon>9</SoLuongTon>
+    <HinhAnh>S020.png</HinhAnh>
+    <MoTa>Phạm Huy Hoàng tập hợp và viết lại những bài viết được nhiều lập trình viên trẻ tìm đọc trên blog của mình. Sách bàn về những chuyện ngoài code: chọn hướng đi trong nghề, tự học, viết CV, phỏng vấn, làm việc nhóm và phát triển bản thân.
+Giọng văn thẳng, vui, nhiều ví dụ từ chính trải nghiệm đi làm của tác giả. Hợp với sinh viên năm cuối và lập trình viên mới đi làm vài năm.</MoTa>
+  </Sach>
+</DanhSachSach>
